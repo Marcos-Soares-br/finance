@@ -1,0 +1,287 @@
+.grid {
+    width: 100%;
+    height: calc(100vh - 70px);
+    overflow-y: scroll;
+    padding: 5px 10px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-row: 7;
+    grid-template-areas: 
+    "saudacao saudacao"
+    "saldogeral saldogeral"
+    "rec desp"
+    "operacoes operacoes"
+    "minhascontas minhascontas"
+    "objetivos objetivos"
+    "proximos proximos";
+}
+
+.divSaudacao {
+    grid-area: saudacao;
+    margin: 5px auto 10px 5px;
+}
+
+.olho {
+    color: var(--texto01);
+    font-size: 30px;
+    position: relative;
+    top: -50px;
+    right: -165px;
+    cursor: pointer;
+}
+
+.divSaldoGeral {
+    grid-area: saldogeral;
+    margin: 10px auto 0px auto;
+    height: 50px;
+}
+
+.divSaldoGeral span {
+    font-size: 14px;
+    color: var(--texto02);
+}
+
+#saldoGeral {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.divRec {
+    grid-area: rec;
+}
+.divDesp {
+    grid-area: desp;
+}
+
+.divRec, .divDesp {
+    box-shadow: 2px 1px 3px rgba(0, 0, 0, 0.30); 
+    background-color: var(--fundo02);
+    margin: 20px auto;
+    height: 55px;
+    width: 95%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.divRec span, .divDesp span {
+    color: var(--texto02);
+}
+
+.pRec {
+    color: var(--primaria);
+    font-weight: 600;
+}
+
+.pDesp {
+    color: var(--despesas);
+    font-weight: 600;
+}
+
+.divOperacoes {
+    grid-area: operacoes;
+    width: 96.5%;
+    height: 85px;
+    margin: 0px auto;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--fundo02);
+    box-shadow: 2px 1px 3px rgba(0, 0, 0, 0.30); 
+}
+.ops {
+    /* box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.445); */
+    border-radius: 5px;
+    cursor: pointer;
+}
+.ops:hover {
+    scale: 1.1;
+}
+
+.bx-plus-circle {
+    color: var(--primaria);
+    font-size: 40px;
+}
+
+.bx-minus-circle {
+    font-size: 42px;
+    color: var(--despesas);
+}
+
+.bx-transfer {
+    font-size: 28px;
+    color: var(--transf);
+    border-radius: 50%;
+    padding: 2px;
+    border: solid 3px var(--transf);
+}
+
+.containers {
+    background-color: var(--fundo02);
+    border-radius: 5px;
+    width: 96%;
+    margin: 15px auto 0px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 1px 3px rgba(0, 0, 0, 0.30); 
+}
+
+.containerMinhasContas {
+    grid-area: minhascontas;
+}
+
+.containerMeusObjetivos {
+    grid-area: objetivos;
+}
+.containerProxLanc {
+    grid-area: proximos;
+    margin-bottom: 20px !important;
+}
+
+.divContas, .divObjetivos, .divProxLanc {
+    height: 50px;
+    width: 98%;
+    border-bottom: solid 1px var(--texto02);
+    margin-bottom: 5px;
+    display: flex;
+}
+.divContas img{
+    width: 45px;
+    height: 45px;
+    margin: auto auto auto 25px;
+}
+.nomeConta {
+    color: var(--texto01);
+    margin: auto auto auto 15px;
+}
+
+.saldoContas, .valorObj {
+    color: var(--transf);
+    font-weight: 600;
+    margin: auto 25px auto auto;
+}
+
+.divsRegistros {
+    background-color: var(--fundo02);
+    display: none;
+    width: 85%;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    padding: 10px 15px;
+    border-radius: 7px;
+    box-shadow: 0px 0px 7px rgba(255, 255, 255, 0.2);
+    position: relative;
+    z-index: 999;
+}
+
+.divsRegistros h2 {
+    font-size: 25px;
+    margin: -20px auto 10px auto;
+}
+
+.divsRegistros label {
+    color: var(--texto02) !important;
+    margin-bottom: 3px;
+}
+
+.inputValor {
+    background-color: var(--fundo02) !important;
+    text-align: center;
+    height: 50px !important;
+    font-size: 30px !important;
+    font-weight: 600;
+    border: none !important;
+}
+
+#valorRec::placeholder, #valorRec {
+    color: var(--primaria);
+}
+#valorDesp::placeholder, #valorDesp {
+    color: var(--despesas);
+}
+#valorTransf::placeholder, #valorTransf{
+    color: var(--transf);
+}
+
+.divsRegistros input, .divsRegistros select {
+    width: 200px;
+    height: 40px;
+    margin-bottom: 15px;
+    background-color: var(--fundo02);
+    outline: none;
+    color: var(--texto01);
+    text-indent: 5px;
+    border-radius: 5px;
+    border: solid 1px var(--texto02);
+    font-size: 16px;
+}
+
+.divsRegistros select option{
+    background-color: var(--fundo02) ;
+    color: var(--texto01) !important;
+}
+
+#dataRec, #dataDesp {
+    text-align: center;
+}
+
+.containerRadios {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 0.5rem;
+    border: solid 1.5px #9e9e9e;
+    background-color: var(--fundo02);
+    box-sizing: border-box;
+    box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
+    padding: 0.25rem;
+    width: 200px;
+    font-size: 14px;
+}
+
+.containerRadios .radio .name {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    border: none;
+    padding: .5rem 0;
+    color: var(--texto01);
+    transition: all .15s ease-in-out;
+}
+
+.containerRadios .radio {
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+.containerRadios .radio input {
+    display: none; 
+}
+  
+.containerRadios .radio input:checked + .name {
+    background-color: var(--texto01);
+    color: var(--fundo01);
+    font-weight: 600;
+} 
+
+.divsRegistros button {
+    height: 40px;
+    width: 110px;
+    font-size: 17px;
+    margin: 20px auto;
+}
+
+#confirmarTrans {
+    border-color: var(--transf);
+}
+
+#confirmarDespesa {
+    border-color: var(--despesas);
+}
