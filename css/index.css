@@ -167,7 +167,7 @@
 
 .divsRegistros {
     background-color: var(--fundo02);
-    display: none;
+    display: flex;
     width: 85%;
     flex-direction: column;
     align-items: center;

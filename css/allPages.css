@@ -36,6 +36,10 @@
   --fundoNav: #191919;
 }
 
+.ocultar {
+    display: none !important;
+}
+
 body {
     background-color: var(--fundo01);
     color: var(--texto01);
@@ -60,7 +64,13 @@ a {
     text-decoration: none;
 }
 
-.fa-solid, .fas {
+.bx-x-circle { /* x */
+    font-size: 25px;
+    color: var(--texto01);
+    cursor: pointer;
+}
+
+.fa-solid, .fas, .bx {
     font-size: 20px;
     color: var(--texto02);
 }
@@ -102,7 +112,7 @@ a {
 }
 
 h1 {
-    font-size: 22px;
+    font-size: 20px;
     margin: 10px auto;
 }
 

@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finance</title>
+    <link rel="shortcut icon" href="icons/fav-icon.png" type="image/x-icon">
     
     <!-- Estilos -->
-    <link rel="stylesheet" href="css/style-index.css">
+    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/allPages.css">
 
     <!-- Icones do font Awesome --> 
@@ -17,13 +18,33 @@
 <body class="temaEscuro">
     <div class="background"></div>
     <nav>
-        <a href="#"> <div class="iconsNav">                <i class="fa-solid fa-house" style="color: #0ff77e;"></i>    <span style="color: #0ff77e;">Inicio</span> </div> </a>
+        <a href="#"> 
+            <div class="iconsNav">                
+                <i class="fa-solid fa-house" style="color: #0ff77e;"></i>    
+                <span style="color: #0ff77e;">Inicio</span> 
+            </div> 
+        </a>
         
-        <a href="objetivos.html">  <div class="iconsNav">  <i class="fa-solid fa-bullseye"></i>                            <span>Objetivos</span> </div> </a>
+        <a href="pages/objetivos.html">  
+            <div class="iconsNav">  
+                <i class="fa-solid fa-bullseye"></i>                            
+                <span>Objetivos</span> 
+            </div> 
+        </a>
         
-        <a href="relatorios.html">  <div class="iconsNav"> <i class="fas fa-signal"></i>                                   <span>Relatórios</span> </div> </a>
+        <a href="pages/relatorios.html">  
+            <div class="iconsNav"> 
+                <i class="fas fa-signal"></i>                                   
+                <span>Relatórios</span> 
+            </div> 
+        </a>
         
-        <a href="perfil.html">  <div class="iconsNav">     <i class="fas fa-user-circle"></i>                              <span>Perfil</span> </div> </a>
+        <a href="pages/perfil.html">  
+            <div class="iconsNav">     
+                <i class="fas fa-user-circle"></i>                              
+                <span>Perfil</span> 
+            </div> 
+        </a>
     </nav>
     
     <main class="grid">
@@ -78,7 +99,7 @@
     </main>
 
     <!-- Div para registrar Receitas -->
-    <div class="divsRegistros" id="divRegistrarReceitas">
+    <div class="divsRegistros ocultar" id="divRegistrarReceitas">
         <i class="fa-solid fa-xmark" id="fecharDivRec"></i>
         <h2>Adicionar receita</h2>
 
@@ -115,7 +136,7 @@
     </div>
 
     <!-- Div para registrar Despesas -->
-    <div class="divsRegistros" id="divRegistrarDespesas">
+    <div class="divsRegistros ocultar" id="divRegistrarDespesas">
         <i class="fa-solid fa-xmark" id="fecharDivDesp"></i>
         <h2>Adicionar despesas</h2>
 
@@ -152,7 +173,7 @@
     </div>
 
     <!-- Div para realizar Transferências -->
-    <div class="divsRegistros" id="divRealizarTransf">
+    <div class="divsRegistros ocultar" id="divRealizarTransf">
         <i class="fa-solid fa-xmark" id="fecharDivTransf"></i>
         <h2>Transferências</h2>
 

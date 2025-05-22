@@ -1,0 +1,240 @@
+.grid {
+    width: 100%;
+    overflow-y: scroll;
+    display: grid; 
+    grid-column: 2;
+    grid-row: 4;
+    grid-template-areas: 
+    "nome config"
+    "status status"
+    "conq-titulo conq-titulo"
+    "conquistas conquistas";
+}
+
+.nome {
+    grid-area: nome;
+    display: flex;
+    align-items: center;
+    color: var(--texto01);
+    font-size: 20px;
+    margin-left: 22px;
+}
+
+.config {
+    grid-area: config;
+    display: flex;
+    width: 95%;
+    height: 55px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.status {
+    grid-area: status;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px auto 5px 10px;
+}
+
+.status img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin: auto 20px auto 0px;
+    overflow: hidden;
+}
+
+.infos {
+    color: var(--texto02);
+}
+
+.conqTitulo {
+    grid-area: conq-titulo;
+    width: 90%;
+    margin: auto;
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    border-top: solid 1px var(--texto02);
+}
+
+.conquistas {
+    grid-area: conquistas;
+    width: 90%;
+    display: flex;
+    margin: 25px auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.conquistas i {
+    font-size: 29px;
+    margin: auto;
+    filter: blur(2px) opacity(40%);
+}
+
+.nvl1 {
+    color: rgb(139, 79, 0) !important;
+}
+
+.nvl2 {
+    color: rgb(90, 90, 90) !important;
+}
+
+.nvl3 {
+    color: rgb(255, 174, 0) !important;
+}
+
+section {
+    width: 100%;
+    overflow: hidden;
+    display: grid; 
+    grid-column: 2;
+    grid-row: 4;
+    grid-template-areas:
+    "topo topo"
+    "listadeopcoes listadeopcoes";
+}
+
+section a {
+    width: 100%;
+    color: var(--texto01);
+}
+
+.topo {
+    grid-area: topo;
+    width: 100%;
+    height: 40px;
+    margin: 8px auto; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.topo p {
+    font-size: 20px;
+}
+
+.listaDeOpcoes {
+    grid-area: listadeopcoes;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    margin: 20px auto 10px auto;
+}
+
+.listaDeOpcoes li {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.listaDeOpcoes span {
+    margin-left: 15px;
+}
+
+.divAlterarNome p {
+    margin: 10px;
+}
+
+.divAlterarNome input{
+    width: 162px;
+    height: 25px;
+    padding: 3px;
+    text-indent: 5px;
+    background-color: var(--fundo02);
+    color: var(--texto01);
+    border: solid 1px var(--texto02);
+    border-radius: 5px;
+    outline: none;
+}
+
+.divBotoes button {
+    margin: 20px 5px;
+    width: 83px;
+}
+
+#cancelarTrocaNome {
+    border-color: var(--despesas);
+}
+
+.divAlterarTema, .divAlterarNome {
+    width: 80%;
+    height: 150px;
+    margin: 100px auto;
+    display: none; 
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--fundo02);
+    border-radius: 5px;
+    position: absolute;
+    z-index: 999;
+    justify-content: center;
+}
+
+.divAlterarTema p {
+    position: relative;
+    top: -17px;
+}
+
+.divAlterarTema button {
+    width: 100px !important;
+    border: solid 1px var(--texto01);
+    margin: 5px auto !important;
+}
+
+.mensagem {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333333b7;
+    border-radius: 5px;
+    width: 250px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ICONES */
+
+.fa-gear {
+    font-size: 30px;
+}
+
+.fa-medal {
+    font-size: 20px;
+    color: var(--texto01) !important;
+    margin-right: 5px;
+}
+
+.fa-arrow-left {
+    font-size: 30px;
+    color: var(--texto01) !important;
+    position: absolute;
+    left: 15px;
+    top: 15px;
+}
+
+.fa-angle-right {
+    color: var(--texto01) !important;
+    font-size: 20px;
+    margin: auto 0px auto auto;
+}
+
+.fa-sun {
+    color: yellow !important;
+}
+
+.bx-x-circle {
+    font-size: 24px;
+    position: relative;
+    top: 5px;
+    right: -140px;
+}
