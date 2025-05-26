@@ -102,18 +102,18 @@
 }
 
 .bx-plus-circle {
-    color: var(--primaria);
-    font-size: 40px;
+    color: var(--primaria) !important;
+    font-size: 40px !important;
 }
 
 .bx-minus-circle {
-    font-size: 42px;
-    color: var(--despesas);
+    font-size: 42px !important;
+    color: var(--despesas) !important;
 }
 
 .bx-transfer {
-    font-size: 28px;
-    color: var(--transf);
+    font-size: 28px !important;
+    color: var(--transf) !important;
     border-radius: 50%;
     padding: 2px;
     border: solid 3px var(--transf);
@@ -143,6 +143,13 @@
 }
 
 .divContas, .divObjetivos, .divProxLanc {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.divContas > div, .divObjetivos > div, .divProxLanc > div {
     height: 50px;
     width: 98%;
     border-bottom: solid 1px var(--texto02);
@@ -154,7 +161,7 @@
     height: 45px;
     margin: auto auto auto 25px;
 }
-.nomeConta {
+.nomeConta, .nomeObj {
     color: var(--texto01);
     margin: auto auto auto 15px;
 }
