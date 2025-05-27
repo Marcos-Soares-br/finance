@@ -68,4 +68,67 @@ function escreverData(id) {
 
   input.value = `${dia}/${mes}/${ano}`;
 };
-export {DateUtils, escreverData}
+
+// FORMATAR CAMPOS DATA //
+function formatarData(id) {
+      const input = document.getElementById(id);
+      let valor = input.value.replace(/\D/g, '');
+
+      let dataFormatada = '';
+
+      if (valor.length >= 2) {
+        dataFormatada += valor.substring(0, 2) + '/';
+        valor = valor.substring(2);
+      }
+      if (valor.length >= 2) {
+        dataFormatada += valor.substring(0, 2) + '/';
+        valor = valor.substring(2);
+      }
+      if (valor.length >= 4) {
+        dataFormatada += valor.substring(0, 4);
+      } else {
+        dataFormatada += valor;
+      }
+
+      input.value = dataFormatada;
+}
+
+function aumentarUmaSemana(dataRecebida) {
+    let partesData = dataRecebida.split('/');
+    let objetoData = new Date(`${partesData[2]}-${partesData[1]}-${partesData[0]}`);
+
+    let timeStamp = objetoData.getTime();
+    let seteDiasEmMs = 8 * 24 * 60 * 60 * 1000;
+    timeStamp += seteDiasEmMs;
+
+    objetoData = new Date(timeStamp);
+
+    let dia = (objetoData.getDate() < 10 ? `0${objetoData.getDate()}` : objetoData.getDate() )
+    let mes = (objetoData.getMonth()+1 < 10 ? `0${objetoData.getMonth()+1}` : objetoData.getMonth()+1 )
+    let ano = objetoData.getFullYear();
+    let dataNova  = `${dia}/${mes}/${ano}`;
+    
+    return dataNova;
+
+  }
+
+
+function aumentarUmMes(dataRecebida)  {
+  let partesData = dataRecebida.split('/');
+  let mes = partesData[1];
+  mes = (mes[0] == '0' ? mes.replace('0', '') : mes)
+  mes = parseInt(mes);
+  mes = (mes+1 > 12 ? '01' : mes+1);
+
+  if (mes == '01') {
+    partesData[2] = parseInt(partesData[2]) + 1; 
+  }
+
+  mes = (mes < 10 ? '0'+mes : mes);
+
+  let dataNova = `${partesData[0]}/${mes}/${partesData[2]}`;
+
+  return dataNova;
+}
+
+export {DateUtils, escreverData, aumentarUmaSemana, aumentarUmMes, formatarData}

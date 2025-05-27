@@ -54,9 +54,9 @@
 
         <!-- Informações iniciais -->
         <div class="divSaldoGeral">
-            <span>Saldo Geral:</span>
-            <p id="saldoGeral" class="valor"></p>
-            <i class='bx bxs-show olho' id="olho" title="Ocultar"></i>
+            <label>Saldo Geral:</label>
+            <p id="saldoGeral"> <i class='bx bxs-show olho' id="olho" title="Ocultar"></i></p>
+            <!-- <i class='bx bxs-show olho' id="olho" title="Ocultar"></i> -->
         </div>
 
         <div class="divRec">
@@ -103,7 +103,7 @@
     <!-- Div para registrar Receitas -->
     <div class="divsRegistros ocultar" id="divRegistrarReceitas">
         <i class="fa-solid fa-xmark" id="fecharDivRec"></i>
-        <h2>Adicionar receita</h2>
+        <h2>Registrar receita</h2>
 
         <input type="text" id="valorRec" placeholder="R$ 0,00" class="inputValor" autocomplete="off">
 
@@ -147,8 +147,8 @@
         <label for="nomeDesp">Nome da despesa:</label>
         <input type="text" name="nomeDesp" id="nomeDesp" placeholder="Exemplo: Aluguel">
 
-        <label for="contaRec">Descontar em:</label>
-        <select name="contaRec" id="contaRec" class="selects"> </select>
+        <label for="contaDesp">Descontar em:</label>
+        <select name="contaDesp" id="contaDesp" class="selects"> </select>
 
         <label for="dataDesp">Data (DD/MM/AAAA):</label>
         <input type="text" name="dataDesp" id="dataDesp" autocomplete="off">

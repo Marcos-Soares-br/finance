@@ -1,3 +1,5 @@
+import { aumentarUmaSemana, aumentarUmMes } from "../utils/dateUtils.js";
+
 function registrarDespesa(tipo, nomeDesp, valorDesp, indice, dataDesp) {
     let contas = JSON.parse(localStorage.getItem('contas'));
     let infosDespesas = JSON.parse(localStorage.getItem('infosDespesas')) || [];
@@ -25,6 +27,57 @@ function registrarDespesa(tipo, nomeDesp, valorDesp, indice, dataDesp) {
     localStorage.setItem('objetivos', JSON.stringify(objetivos));
 }
 
+function registrarDespFuturas(tipo, nome, valor, conta, data) {
+  let despesasFuturas = JSON.parse(localStorage.getItem('despesasFuturas')) || [];
+  let anoAtual = new Date();
+  anoAtual = anoAtual.getFullYear();
+  
+  let dataRecebida = data;
+  let anoData = data.split('/');
+  anoData = parseInt(anoData[2]);
+
+  if (tipo == 'unico') {
+    let infos = { nome: nome, valor: valor, contaRecebimento: conta, data: data, lancamento: tipo };
+
+    despesasFuturas.push(infos);
+
+    localStorage.setItem('despesasFuturas', JSON.stringify(despesasFuturas));
+
+  } else if (tipo == 'semanal') {
+      while (anoData < (anoAtual + 1)) {
+        dataRecebida = aumentarUmaSemana(dataRecebida);
+        let partes = dataRecebida.split('/');
+        anoData = parseInt(partes[2]);
+
+        let infos = { nome: nome, valor: valor, contaRecebimento: conta, data: dataRecebida, lancamento: 'unico' };
+
+        despesasFuturas.push(infos);
+
+        localStorage.setItem('despesasFuturas', JSON.stringify(despesasFuturas));
+
+      }
+
+  } else if (tipo == 'mensal') {
+    while (anoData < (anoAtual + 1)) {
+        dataRecebida = aumentarUmMes(dataRecebida);
+        let partes = dataRecebida.split('/');
+        anoData = partes[2];
+        if (anoData == anoAtual+1) {
+          break;
+        }
+
+        let infos = { nome: nome, valor: valor, contaRecebimento: conta, data: dataRecebida, lancamento: 'unico' };
+
+        despesasFuturas.push(infos);
+
+        localStorage.setItem('despesasFuturas', JSON.stringify(despesasFuturas));
+
+    }
+
+  }
+}
+
+
 function registrarReceita(tipo, nomeRec, valorRec, contaRec, dataRec) { 
     let contas = JSON.parse(localStorage.getItem('contas'));
     let infosReceitas = JSON.parse(localStorage.getItem('infosReceitas')) || [];
@@ -42,6 +95,56 @@ function registrarReceita(tipo, nomeRec, valorRec, contaRec, dataRec) {
     
     localStorage.setItem('infosReceitas', JSON.stringify(infosReceitas));
     localStorage.setItem('contas', JSON.stringify(contas));
+}
+
+function registrarRecFuturas(tipo, nome, valor, conta, data) {
+  let receitasFuturas = JSON.parse(localStorage.getItem('receitasFuturas')) || [];
+  let anoAtual = new Date();
+  anoAtual = anoAtual.getFullYear();
+  
+  let dataRecebida = data;
+  let anoData = data.split('/');
+  anoData = parseInt(anoData[2]);
+
+  if (tipo == 'unico') {
+    let infos = { nome: nome, valor: valor, contaRecebimento: conta, data: data, lancamento: tipo };
+
+    receitasFuturas.push(infos);
+
+    localStorage.setItem('receitasFuturas', JSON.stringify(receitasFuturas));
+
+  } else if (tipo == 'semanal') {
+      while (anoData < (anoAtual + 1)) {
+        dataRecebida = aumentarUmaSemana(dataRecebida);
+        let partes = dataRecebida.split('/');
+        anoData = partes[2];
+
+        let infos = { nome: nome, valor: valor, contaRecebimento: conta, data: dataRecebida, lancamento: 'unico' };
+
+        receitasFuturas.push(infos);
+
+        localStorage.setItem('receitasFuturas', JSON.stringify(receitasFuturas));
+
+      }
+
+  } else if (tipo == 'mensal') {
+    while (anoData < (anoAtual + 1)) {
+        dataRecebida = aumentarUmMes(dataRecebida);
+        let partes = dataRecebida.split('/');
+        anoData = partes[2];
+        if (anoData == anoAtual+1) {
+          break;
+        }
+
+        let infos = { nome: nome, valor: valor, contaRecebimento: conta, data: dataRecebida, lancamento: 'unico' };
+
+        receitasFuturas.push(infos);
+
+        localStorage.setItem('receitasFuturas', JSON.stringify(receitasFuturas));
+
+    }
+
+  }
 }
 
 function calcularRecAtualMes() {
@@ -96,4 +199,4 @@ function calcularDespAtualMes() {
 
 
 
-export {registrarDespesa, registrarReceita, calcularDespAtualMes, calcularRecAtualMes}
+export {registrarDespesa, registrarDespFuturas, registrarReceita, registrarRecFuturas, calcularDespAtualMes, calcularRecAtualMes}

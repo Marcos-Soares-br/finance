@@ -24,9 +24,7 @@
 .olho {
     color: var(--texto01) !important;
     font-size: 30px !important;
-    position: relative;
-    top: -50px;
-    right: -165px;
+    margin-left: 5px;
     cursor: pointer;
 }
 
@@ -36,7 +34,7 @@
     height: 50px;
 }
 
-.divSaldoGeral span {
+.divSaldoGeral label {
     font-size: 14px;
     color: var(--texto02);
 }
@@ -93,7 +91,6 @@
     box-shadow: 2px 1px 3px rgba(0, 0, 0, 0.30); 
 }
 .ops {
-    /* box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.445); */
     border-radius: 5px;
     cursor: pointer;
 }

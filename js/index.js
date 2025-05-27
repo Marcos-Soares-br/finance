@@ -39,12 +39,15 @@ function carregarSaudacao() {
 }
 
 function carregarSaldoGeral() {
-    const pSaldoGeral = document.querySelector('#saldoGeral');
-    let saldoGeral = 0;
-    contas.map( (conta) => { saldoGeral += parseFloat(conta.saldo); });
-    saldoGeral = saldoGeral.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    const divSaldoGeral = document.querySelector('#saldoGeral');
+    let pSaldoGeral = document.createElement('span');
+    pSaldoGeral.classList.add('valor');
 
-    pSaldoGeral.innerHTML = saldoGeral;
+    let saldo = 0; 
+    contas.map( (conta) => { saldo += parseFloat(conta.saldo); });
+    pSaldoGeral.innerHTML = saldo.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    divSaldoGeral.prepend(pSaldoGeral)
+
 }
 
 const olho = document.querySelector('#olho');
