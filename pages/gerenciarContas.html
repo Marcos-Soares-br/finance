@@ -54,17 +54,17 @@
         <div class="divMinhasContas">  </div>
     </main>
 
-    <div class="divCriarConta">
+    <div class="divCriarConta ocultar">
         <div>
             <i class='bx bx-x-circle' id="fecharCriarConta"></i>
             <p>Digite o saldo:</p>
-            <input type="text" placeholder="R$ 0,00" required id="saldoConta">
+            <input type="text" placeholder="R$ 0,00" required id="saldoConta" autocomplete="off">
             <input type="text" placeholder="Nome da conta" id="nomeDaConta">
 
             <button id="criarConta">Criar</button>
         </div>
     </div>
 
-    <script src="../js/gerenciarContas.js"></script>
+    <script src="../js/gerenciarContas.js" type="module"></script>
 </body>
 </html>

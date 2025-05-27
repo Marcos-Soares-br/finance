@@ -61,7 +61,7 @@ main > a {
     max-width: 400px;
     height: 250px;
     background-color: var(--fundo02);
-    display: none;
+    display: flex;
     border-radius: 6px;
     z-index: 999;
 }
