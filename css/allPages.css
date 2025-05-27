@@ -6,7 +6,7 @@
 }
 
 .background {
-    display: none;
+    display: flex;
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(5px);
     position: absolute;
@@ -47,6 +47,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    -webkit-user-select: none;
+    -moz-user-select: none; 
+    -ms-user-select: none;
+    user-select: none;  
 }
 
 nav {
@@ -64,10 +68,11 @@ a {
     text-decoration: none;
 }
 
-.bx-x-circle { /* x */
-    font-size: 25px;
+.bx-x-circle, .fa-xmark { /* x */
+    font-size: 27px !important;
     color: var(--texto01);
     cursor: pointer;
+    z-index: 999;
 }
 
 .fa-solid, .fas, .bx {
@@ -115,6 +120,13 @@ h1 {
     font-size: 20px;
     margin: 10px auto;
 }
+.titulo {
+    width: 90%;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    border-bottom: solid 1px var(--primaria);
+}
 
 button {
     padding: 5px 7px;
@@ -134,7 +146,7 @@ button:hover {
 
 ::-webkit-scrollbar {
     width: 6px;
-    }
+}
     
 ::-webkit-scrollbar-track {
     background: var(--fundo02);

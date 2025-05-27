@@ -1,21 +1,21 @@
-import { verificarTema} from "./utils/themeUtils.js";
-import { DateUtils } from "./utils/dateUtils.js";
+import { verificarTema } from "./utils/themeUtils.js";
+import { escreverData  } from "./utils/dateUtils.js";
 import { formatarMoeda } from "./utils/formatUtils.js";
 import { registrarDespesa, registrarReceita, calcularRecAtualMes, calcularDespAtualMes} from "./services/financeServices.js";
 
 addEventListener('DOMContentLoaded', () => {
-    //verificarTema();
+    verificarTema();
     carregarSaudacao();
     carregarSaldoGeral();
     carregarReceitaDoMes();
     carregarDespesaDoMes();
     carregarDivContas();
     carregarDivObjetivos();
-    //carregarDivProx();
-    //verificarReceitas();
-    //verificarDespesas();
-    //calcularDadosMensais();
-    //limparDadosAnuais();
+    carregarDivProx();
+    verificarReceitas();
+    verificarDespesas();
+    calcularDadosMensais();
+    limparDadosAnuais();
 });
 
 const contas = JSON.parse(localStorage.getItem('contas')) || [];
@@ -178,8 +178,247 @@ function carregarDivObjetivos() {
     } else {
         const mensagem = document.createElement('p');
         mensagem.innerHTML = 'Nenhum objetivo adicionado.';
+        mensagem.style.color = 'var(--texto02)';
         mensagem.style.margin = '10px auto';
         divMeusObjetivos.prepend(mensagem);
     }
 
+}
+
+document.querySelector('#btnDetalhesObj').addEventListener('click', () => {
+    location.href = 'pages/objetivos.html';
+});
+
+function carregarDivProx() {
+    const divProximos = document.querySelector('.divProxLanc');
+
+    const recFuturas = JSON.parse(localStorage.getItem('receitasFuturas')) || [];
+    const despFuturas = JSON.parse(localStorage.getItem('despesasFuturas')) || [];
+    despFuturas.forEach( (el) => {
+        el.despesa = 'true';
+    });
+
+    const todos = [...recFuturas, ...despFuturas];
+
+    function parseData(dataStr) {
+        if (dataStr.includes('/')) {
+            const [dia, mes, ano] = dataStr.split('/');
+            return new Date(`${ano}-${mes}-${dia}`);
+        }
+        return new Date(dataStr);
+    }
+
+    todos.sort((a, b) => {
+        const dataA = parseData(a.data);
+        const dataB = parseData(b.data);
+        return dataA - dataB;
+    });
+
+    const proximos = todos.slice(0, 5);
+
+    proximos.forEach((elemento) => {
+        const div = document.createElement('div');
+        const valor = document.createElement('p');
+        valor.setAttribute('class', 'valor');
+        const data = document.createElement('p');
+        let icone;
+
+        if (elemento.despesa == 'true') {
+            icone = `<i class="fa-solid fa-dollar-sign" style="color: #f74949;"></i> <span style="color: #f74949;">${elemento.nome}</span>`;
+            valor.innerHTML = `-${elemento.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`;
+            valor.setAttribute('style', 'color: #f74949');
+
+        } else {
+            icone = `<i class="fa-solid fa-dollar-sign" style="color: #0ff77e;"></i> <span style="color: #0ff77e;">${elemento.nome}</span>`;
+            valor.innerHTML = `+${elemento.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`;
+            valor.setAttribute('style', 'color: #0ff77e'); 
+        } 
+
+        div.setAttribute('class', 'container-proximos-lancamentos');
+        data.innerHTML = elemento.data;
+
+        div.innerHTML = icone;
+        div.appendChild(valor);
+        div.appendChild(data);
+
+        divProximos.appendChild(div);
+    });
+
+    if (divProximos.childElementCount == 0) {
+        divProximos.innerHTML += '<br> <p style="color: var(--texto02)"> Nenhum lançamento próximo. </p> <br>'
+    }
+}
+
+
+// ABERTURA E FECHAMENTOS DE DIVS FLUTUANTES 
+const divBackg = document.querySelector('.background');
+const grid = document.querySelector('.grid');
+
+function abrirDivFlutuante(popupDiv) {
+    grid.classList.add('ocultar');
+    divBackg.classList.remove('ocultar');
+    popupDiv.classList.remove('ocultar');
+
+    const selects = [...document.querySelectorAll('.selects')];
+
+    selects.forEach( (select) => {
+        select.innerHTML = '';
+        contas.forEach( (conta) => {
+            const opcao = document.createElement('option');
+            opcao.text = conta.nome;
+            select.appendChild(opcao);
+        })
+    })
+
+}
+
+function fecharDivFlutuante(popupDiv) {
+    popupDiv.classList.add('ocultar');
+    grid.classList.remove('ocultar');
+    divBackg.classList.add('ocultar');
+}
+
+divBackg.addEventListener('click', () => {
+    divDespesa.classList.add('ocultar');
+    divReceita.classList.add('ocultar');
+    divTransf.classList.add('ocultar');
+    divBackg.classList.add('ocultar');
+    grid.classList.remove('ocultar');
+});
+
+// DIV RECEITAS
+const divReceita = document.querySelector('#divRegistrarReceitas');
+const adcReceita = document.querySelector('#adcReceita');
+
+adcReceita.addEventListener('click', () => { 
+    abrirDivFlutuante(divReceita); 
+    formatarMoeda('valorRec');
+    escreverData(divReceita.children[8].id);
+
+});
+
+const btnFecharRec = document.querySelector('#fecharDivRec');
+btnFecharRec.addEventListener('click', () => { fecharDivFlutuante(divReceita); } );
+
+// DIV DESPESA
+const divDespesa = document.querySelector('#divRegistrarDespesas');
+const adcDespesa = document.querySelector('#adcDespesa');
+
+adcDespesa.addEventListener('click', () => { 
+    abrirDivFlutuante(divDespesa);
+    formatarMoeda('valorDesp');
+    escreverData(divDespesa.children[8].id);; 
+});
+
+const btnFecharDesp = document.querySelector('#fecharDivDesp');
+btnFecharDesp.addEventListener('click', () => { fecharDivFlutuante(divDespesa); });
+
+
+// DIV TRANSFERENCIA
+const divTransf = document.querySelector('#divRealizarTransf');
+const adcTrasnferencia = document.querySelector('#adcTransferencia');
+
+adcTrasnferencia.addEventListener('click', () => { 
+    abrirDivFlutuante(divTransf); 
+    formatarMoeda('valorTransf');
+});
+
+const btnFecharTransf = document.querySelector('#fecharDivTransf');
+btnFecharTransf.addEventListener('click', () => { fecharDivFlutuante(divTransf) });
+
+
+//FUNÇÃO PARA RECALCULAR A RECEITA E DESPESA ATUAL DO MES
+function  calcularDadosMensais() {
+    
+    let hoje = new Date();
+    let mes = hoje.getMonth() + 1; 
+    let ano = hoje.getFullYear(); 
+  
+    let recalcularDespRec = localStorage.getItem('recalcularDespRec');
+
+    if ((ano > 2025 || (ano == 2025 && mes >= 6)) && recalcularDespRec !== `${ano}-${mes}`) {
+        
+        calcularRecAtualMes();
+        calcularDespAtualMes();
+
+        localStorage.setItem('recalcularDespRec', `${ano}-${mes}`);
+
+        location.reload();
+    } 
+} 
+
+//FUNÇÃO PARA limpar dados temporários de ano em ano
+function limparDadosAnuais() {
+    let hoje = new Date();
+    let ano = hoje.getFullYear(); 
+
+    let anoLimpeza = localStorage.getItem('anoLimpeza');
+
+    if (ano >= 2026 && anoLimpeza !== String(ano)) {
+
+        localStorage.removeItem('infosReceitas');
+        localStorage.removeItem('infosDespesas');
+        localStorage.removeItem('receitasFuturas');
+        localStorage.removeItem('despesasFuturas');
+
+        localStorage.setItem('anoLimpeza', String(ano));
+
+        location.reload();
+
+    }
+}
+
+//Funções para verificar se tem despesas ou receitas a serem efetuadas
+let despesasFuturas = JSON.parse(localStorage.getItem('despesasFuturas')) || [];
+let receitasFuturas = JSON.parse(localStorage.getItem('receitasFuturas')) || [];
+
+function verificarReceitas() {
+
+    receitasFuturas.forEach( (receita, i) => {
+        const dataRec = new DataFunctions(receita.data);
+        if (!dataRec.eFutura()) {
+            registrarReceita('unico', receita.nome, receita.valor, receita.contaRecebimento, receita.data);
+            receitasFuturas.splice(i, i);
+
+            localStorage.setItem('receitasFuturas', JSON.stringify(receitasFuturas) );
+        }
+    });
+}
+
+function verificarDespesas() {
+    despesasFuturas.forEach( (despesa, indice) => {
+        const dataDesp = new DataFunctions(despesa.data);
+
+        if (!dataDesp.eFutura()) {
+            let indiceConta;
+            contas.map( (conta, i) => {
+                if(conta.nome == despesa.nome) { indiceConta = i; }
+            });
+
+            registrarDespesa('unico', despesa.nome, despesa.valor, despesa.contaDeDesconto, indiceConta, despesa.data);
+            despesasFuturas.splice(indice, indice);
+
+            localStorage.setItem('despesasFuturas', JSON.stringify(despesasFuturas) );
+        }
+
+    });
+}
+
+//ADICIONANDO EVENTOS DE CLICK PARA SELECIONAR O TIPO DO LANÇAMENTO
+
+document.getElementById('radioUnicoRec').addEventListener('click', (evt) => { selecionarRadio(evt.target)     });
+document.getElementById('radioSemanalRec').addEventListener('click', (evt) => { selecionarRadio(evt.target)    });
+document.getElementById('radioMensalRec').addEventListener('click', (evt) => {  selecionarRadio(evt.target)    });
+
+
+document.getElementById('radioUnicoDesp').addEventListener('click', (evt) => { selecionarRadio(evt.target)     });
+document.getElementById('radioSemanalDesp').addEventListener('click', (evt) => { selecionarRadio(evt.target)    });
+document.getElementById('radioMensalDesp').addEventListener('click', (evt) => {  selecionarRadio(evt.target)    });
+
+const selecionarRadio = (evt) => {
+    const todosRadios = [...document.querySelectorAll('.inputsRadios')];
+
+    todosRadios.map( (el) => {  el.removeAttribute('checked')  });
+    
+    evt.setAttribute('checked', true);
 }

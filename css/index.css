@@ -1,6 +1,6 @@
 .grid {
     width: 100%;
-    height: calc(100vh - 70px);
+    height: calc(100dvh - 70px);
     overflow-y: scroll;
     padding: 5px 10px;
     display: grid;
@@ -22,8 +22,8 @@
 }
 
 .olho {
-    color: var(--texto01);
-    font-size: 30px;
+    color: var(--texto01) !important;
+    font-size: 30px !important;
     position: relative;
     top: -50px;
     right: -165px;
@@ -101,6 +101,10 @@
     scale: 1.1;
 }
 
+.fa-xmark {
+    align-self: flex-end;
+}
+
 .bx-plus-circle {
     color: var(--primaria) !important;
     font-size: 40px !important;
@@ -152,24 +156,25 @@
 .divContas > div, .divObjetivos > div, .divProxLanc > div {
     height: 50px;
     width: 98%;
-    border-bottom: solid 1px var(--texto02);
     margin-bottom: 5px;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 1px var(--texto02);
 }
 .divContas img{
     width: 45px;
     height: 45px;
-    margin: auto auto auto 25px;
+    margin-left: 15px;
 }
 .nomeConta, .nomeObj {
     color: var(--texto01);
-    margin: auto auto auto 15px;
 }
 
 .saldoContas, .valorObj {
     color: var(--transf);
     font-weight: 600;
-    margin: auto 25px auto auto;
+    margin-right: 15px;
 }
 
 .divsRegistros {

@@ -1,8 +1,8 @@
 function verificarTema() {
     const tema = localStorage.getItem('tema');
-    if (tema == 'escuro') {
-        document.body.setAttribute('class', 'tema-escuro');
-    }
+    if (tema == 'claro') {
+        document.body.classList.remove('temaEscuro');
+    } 
 }
 
 export { verificarTema };

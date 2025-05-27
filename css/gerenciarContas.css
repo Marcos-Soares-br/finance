@@ -2,13 +2,6 @@ main {
     width: 100%;
 }
 
-.titulo {
-    width: 90%;
-    margin-top: 10px;
-    padding-bottom: 10px;
-    text-align: center;
-    border-bottom: solid 1px var(--primaria);
-}
 
 main > a {
     position: absolute;
