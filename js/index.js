@@ -384,9 +384,10 @@ function verificarReceitas() {
         const dataRec = new DateUtils(receita.data);
         if (!dataRec.eFutura()) {
             registrarReceita('unico', receita.nome, receita.valor, receita.contaRecebimento, receita.data);
-            receitasFuturas.splice(i, i);
+            receitasFuturas = receitasFuturas.splice(i, i);
 
             localStorage.setItem('receitasFuturas', JSON.stringify(receitasFuturas) );
+            location.reload();
         }
     });
 }
@@ -401,8 +402,14 @@ function verificarDespesas() {
                 if(conta.nome == despesa.nome) { indiceConta = i; }
             });
 
-            registrarDespesa('unico', despesa.nome, despesa.valor, despesa.contaDeDesconto, indiceConta, despesa.data);
-            despesasFuturas.splice(indice, indice);
+            if( contas[indiceConta].saldo >= despesa.valor) {
+                registrarDespesa('unico', despesa.nome, despesa.valor, despesa.contaDeDesconto, indiceConta, despesa.data);
+                location.reload();
+            } else {
+                alert('Uma despesa agendada não foi registrada por falta de saldo!');
+            }
+
+            despesasFuturas = despesasFuturas.splice(indice, indice);
 
             localStorage.setItem('despesasFuturas', JSON.stringify(despesasFuturas) );
         }
