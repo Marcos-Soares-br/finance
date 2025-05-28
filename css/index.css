@@ -175,6 +175,25 @@
     margin-right: 15px;
 }
 
+.divObjetivos > div > div, .divContas > div > div  {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.divObjetivos > div > div i {
+    font-size: 25px !important;
+    margin-left: 15px;
+}
+
+.divProxLanc > div i{
+    margin-left: 15px;
+}
+
+.divProxLanc > div :last-child {
+    margin-right: 15px;
+}
+
 .divsRegistros {
     background-color: var(--fundo02);
     display: flex;

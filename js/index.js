@@ -1,5 +1,5 @@
 import { verificarTema } from "./utils/themeUtils.js";
-import { escreverData  } from "./utils/dateUtils.js";
+import { DateUtils, escreverData  } from "./utils/dateUtils.js";
 import { formatarMoeda } from "./utils/formatUtils.js";
 import { registrarDespesa, registrarReceita, calcularRecAtualMes, calcularDespAtualMes} from "./services/financeServices.js";
 
@@ -112,12 +112,15 @@ function carregarDivContas() {
             pNome.setAttribute('class', 'nomeConta');
             pNome.innerHTML = conta.nome;
 
+            const divDaEsquerda = document.createElement('div');
+            divDaEsquerda.appendChild(img)
+            divDaEsquerda.appendChild(pNome)
+
             const pValor = document.createElement('p');
             pValor.setAttribute('class', 'saldoContas valor');
             pValor.innerHTML = parseFloat(conta.saldo).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
-            divConta.appendChild(img);
-            divConta.appendChild(pNome);
+            divConta.appendChild(divDaEsquerda)
             divConta.appendChild(pValor);
 
             divMinhasContas.prepend(divConta);
@@ -378,7 +381,7 @@ let receitasFuturas = JSON.parse(localStorage.getItem('receitasFuturas')) || [];
 function verificarReceitas() {
 
     receitasFuturas.forEach( (receita, i) => {
-        const dataRec = new DataFunctions(receita.data);
+        const dataRec = new DateUtils(receita.data);
         if (!dataRec.eFutura()) {
             registrarReceita('unico', receita.nome, receita.valor, receita.contaRecebimento, receita.data);
             receitasFuturas.splice(i, i);
@@ -390,7 +393,7 @@ function verificarReceitas() {
 
 function verificarDespesas() {
     despesasFuturas.forEach( (despesa, indice) => {
-        const dataDesp = new DataFunctions(despesa.data);
+        const dataDesp = new DateUtils(despesa.data);
 
         if (!dataDesp.eFutura()) {
             let indiceConta;
