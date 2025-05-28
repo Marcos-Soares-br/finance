@@ -167,7 +167,7 @@ section a {
     width: 80%;
     height: 150px;
     margin: 100px auto;
-    display: none; 
+    display: flex; 
     flex-direction: column;
     align-items: center;
     background-color: var(--fundo02);
