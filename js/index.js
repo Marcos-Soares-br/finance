@@ -46,7 +46,19 @@ function carregarSaldoGeral() {
     let saldo = 0; 
     contas.map( (conta) => { saldo += parseFloat(conta.saldo); });
     pSaldoGeral.innerHTML = saldo.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-    divSaldoGeral.prepend(pSaldoGeral)
+    divSaldoGeral.prepend(pSaldoGeral);
+
+    if (saldo >= 5000) { localStorage.setItem('conquistaSaldo5k', 'sim'); } 
+
+    if (saldo >= 10000) { localStorage.setItem('conquistaSaldo10k', 'sim'); }
+    
+    if (saldo >= 50000) { localStorage.setItem('conquistaSaldo50k', 'sim'); }
+
+
+    const maiorSaldo = localStorage.getItem('maiorSaldo') || 0;
+    if (saldo > maiorSaldo) {
+        localStorage.setItem('maiorSaldo', saldo);
+    }
 
 }
 

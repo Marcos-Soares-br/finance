@@ -4,6 +4,7 @@ addEventListener('DOMContentLoaded', () => {
     verificarTema();
     carregarNome();
     carregarInfos();
+    verificarConquistas();
 });
 
 function carregarNome() {
@@ -12,8 +13,23 @@ function carregarNome() {
 }
 
 function carregarInfos() {
-    //let situacao;
-    // criar a parte da situação
+
+    const foto = document.getElementById('foto');
+    let maiorSaldo = localStorage.getItem('maiorSaldo') || 0;
+
+    if (maiorSaldo >= 15000) {
+        foto.src = '../icons/prospera.png';
+
+    } else if (maiorSaldo >= 10000) {
+        foto.src = '../icons/estavel.png';
+
+    } else {
+        foto.src = '../icons/desfavorecida.png';
+    }
+
+
+    maiorSaldo = parseFloat(maiorSaldo).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+    document.getElementById('pMaiorSaldo').innerHTML += maiorSaldo;
 
     let maiorReceita = localStorage.getItem('maiorReceita') || 0.00;
     maiorReceita = parseFloat(maiorReceita).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
@@ -22,4 +38,19 @@ function carregarInfos() {
     let maiorDespesa = localStorage.getItem('maiorDespesa') || 0.00;
     maiorDespesa = parseFloat(maiorDespesa).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
     document.getElementById('pMaiorDesp').innerHTML += maiorDespesa;
+
+}
+
+function verificarConquistas() {
+    const saldo5k = localStorage.getItem('conquistaSaldo5k');
+    const saldo10k = localStorage.getItem('conquistaSaldo10k');
+    const saldo50k = localStorage.getItem('conquistaSaldo50k');
+
+    const iconeSaldo5k = document.querySelector('#iconeSaldo5k');
+    const iconeSaldo10k = document.querySelector('#iconeSaldo10k');
+    const iconeSaldo50k = document.querySelector('#iconeSaldo50k');
+
+    if ( saldo5k == 'sim') {  iconeSaldo5k.style.filter =  `blur(0px) opacity(100%) brightness(2)` ;}
+    if ( saldo10k == 'sim') { iconeSaldo10k.style.filter = `blur(0px) opacity(100%) brightness(2)` ;}
+    if ( saldo50k == 'sim' ) {iconeSaldo50k.style.filter = `blur(0px) opacity(100%) brightness(2)` ;}
 }

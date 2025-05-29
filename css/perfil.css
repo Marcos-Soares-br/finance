@@ -73,7 +73,7 @@
 .conquistas i {
     font-size: 29px;
     margin: auto;
-    filter: blur(2px) opacity(40%);
+    filter: blur(2px) opacity(40%) ;
 }
 
 .nvl1 {

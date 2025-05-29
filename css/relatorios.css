@@ -34,6 +34,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 15px;
 }
 
 .receitas > div, .despesas > div {
@@ -86,12 +87,12 @@ main {
 
 .despesas {
     grid-area: despesas;
+    margin-bottom: 40px;
 }
 
 .despXrec {
     grid-area: despXrec;
     gap: 15px;
-    padding-bottom: 10px;
 }
 
 .dr {
@@ -99,6 +100,7 @@ main {
     width: 95%;
     border: none !important;
     margin: auto;
+    justify-content: center;
 }
 
 .porcetagens {

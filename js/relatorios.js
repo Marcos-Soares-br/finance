@@ -54,8 +54,6 @@ function atualizarRelatorio(mes) {
 function atualizarGrafico() {
 
     const dr = document.querySelector('.dr');
-    const desp = document.querySelector('.desp');
-    const rec = document.querySelector('.rec');
     const divPorcetagens = document.querySelector('.porcetagens');
 
     let total = receitaTotal + despesaTotal;
@@ -63,11 +61,11 @@ function atualizarGrafico() {
     let porcetagemDesp = ( despesaTotal / total ) * 100;
 
     if (total == 0 ) {
-        dr.innerHTML = '<p style="color: var(--texto02)">Sem receitas ou despesas registrada nesse mês. </p>';
+        dr.innerHTML = '<p style="color: var(--texto02)">Nada registrado nesse mês. </p>';
         divPorcetagens.innerHTML = '';
     } else {
         dr.innerHTML = `<div class="desp" style="width: ${porcetagemDesp}%"></div>  <div class="rec" style="width: ${porcetagemRec}%"></div>`;
-        divPorcetagens.innerHTML = `<p>${porcetagemDesp}%</p> <p>${porcetagemRec}%</p>`;
+        divPorcetagens.innerHTML = `<p>${porcetagemDesp.toFixed(2)}%</p> <p>${porcetagemRec.toFixed(2)}%</p>`;
     }
 
 }
@@ -78,7 +76,7 @@ function atualizarListaDespesas(mesExibir) {
 
     const divDespesas = document.querySelector('.despesas');
     divDespesas.innerHTML = `<h1 style="color:var(--despesas)">Despesas</h1>
-                             <div>
+                             <div style="color:var(--texto02)">
                                  <p class="pData">Data</p> 
                                  <p class="pNome">Nome</p> 
                                  <p class="pValor">Valor</p>
@@ -103,6 +101,10 @@ function atualizarListaDespesas(mesExibir) {
         divDespesas.appendChild(divContainer);
     });
 
+    if (despesasDoMes.length == 0) {
+        divDespesas.innerHTML = `<h1 style="color:var(--despesas)">Despesas</h1> <p style="color:var(--texto02)">Nenhuma despesa.</p>`;
+    }
+
     despesaTotal = totalDespesas;
 }
 
@@ -112,7 +114,7 @@ function atualizarListaReceitas(mesExibir) {
 
     const divReceitas = document.querySelector('.receitas');
     divReceitas.innerHTML = `<h1 style="color:var(--primaria)">Receitas</h1>
-                             <div>
+                             <div style="color:var(--texto02)">
                                  <p class="pData">Data</p> 
                                  <p class="pNome">Nome</p> 
                                  <p class="pValor">Valor</p>
@@ -136,6 +138,10 @@ function atualizarListaReceitas(mesExibir) {
         `;
         divReceitas.appendChild(divContainer);
     });
+
+    if (receitasDoMes.length == 0) {
+        divReceitas.innerHTML = `<h1 style="color:var(--primaria)">Receitas</h1> <p style="color:var(--texto02)">Nenhuma receita.</p>`;
+    }
 
     receitaTotal = totalReceitas;
 }
