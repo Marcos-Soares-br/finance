@@ -7,9 +7,9 @@ main {
     grid-template-areas: 
     "div-mes"
     "resultados"
+    "despXrec"
     "receitas"
-    "despesas"
-    "despXrec";
+    "despesas";
 }
 
 .divMes {
@@ -30,7 +30,6 @@ main {
     background-color: var(--fundo02);
     border-radius: 5px;
     width: 96%;
-    min-height: 100px;
     margin: 15px auto 0px auto;
     display: flex;
     flex-direction: column;
@@ -41,11 +40,27 @@ main {
     width: 90%;
     height: 35px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 30px;
     align-items: center;
     padding: 3px 10px;
     margin-bottom: 10px;
-    border-bottom: solid 1px var(--texto02);
+    border-bottom: solid 1px #333;
+}
+
+.pData {
+    width: 90px;
+    justify-self: left;
+}
+.pNome {
+    width: 125px;
+    text-align: center;
+    overflow-x: hidden ;
+}
+.pValor {
+    width: 100px;
+    justify-self: right;
+    text-align: right;
 }
 
 .resultados {
@@ -75,6 +90,8 @@ main {
 
 .despXrec {
     grid-area: despXrec;
+    gap: 15px;
+    padding-bottom: 10px;
 }
 
 .dr {
@@ -84,13 +101,25 @@ main {
     margin: auto;
 }
 
+.porcetagens {
+    width: 95%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.porcetagens :first-child {
+    color: var(--despesas);
+}
+.porcetagens :last-child {
+    color: var(--primaria);
+}
+
 h3 {
     margin-top: 10px;
 }
 
 .desp {
     margin: auto 0px auto auto;
-    width: 30%;
     height: 8px;
     background-color: var(--despesas);
     border-radius: 5px 0px 0px 5px;
@@ -102,7 +131,6 @@ h3 {
 
 .rec {
     margin: auto auto auto 0px;
-    width: 70%;
     height: 8px;
     background-color: var(--primaria);
     border-radius: 0px 5px 5px 0px;

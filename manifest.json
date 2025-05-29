@@ -2,7 +2,7 @@
   "name": "Finance",
   "short_name": "Finance",
   "description": "Uma plataforma para gerenciamento financeiro.",
-  "start_url": "/index.html",
+  "start_url": "/index.html?homescreen=1",
   "display": "standalone",
   "background_color": "#000",
   "theme_color": "#000", 
@@ -31,9 +31,5 @@
   "scope": "/",
   "orientation": "portrait",
   "lang": "pt-BR",
-  "dir": "ltr",
-  "display": "standalone",
-  "background_color": "#000",
-  "theme_color": "#000",
-  "start_url": "/index.html?homescreen=1"
+  "dir": "ltr"
 }
