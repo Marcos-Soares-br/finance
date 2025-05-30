@@ -166,3 +166,29 @@ select option{
     margin-left: 10px;
     border-color: var(--despesas);
 }
+
+/* TELAS MAIORES */
+@media (min-width: 800px) {
+    main {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: calc(100% - 100px);
+        height: 100%;
+    }
+
+    .divObjetivos {
+        flex-flow: row wrap;
+    }
+
+    .container {
+        max-width: 500px;
+        margin: 10px auto;
+    }
+
+    .divFlutuante {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

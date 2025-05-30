@@ -9,7 +9,7 @@
     grid-template-areas: 
     "saudacao saudacao"
     "saldogeral saldogeral"
-    "rec desp"
+    "recDesp recDesp"
     "operacoes operacoes"
     "minhascontas minhascontas"
     "objetivos objetivos"
@@ -44,19 +44,22 @@
     font-weight: 700;
 }
 
-.divRec {
-    grid-area: rec;
-}
-.divDesp {
-    grid-area: desp;
+.containerInfosMensais { 
+    grid-area: recDesp; 
+    margin: 10px auto;
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    width: 96%; 
+    height: 90%;
+    margin-bottom: 30px;
 }
 
 .divRec, .divDesp {
     box-shadow: 2px 1px 3px rgba(0, 0, 0, 0.30); 
     background-color: var(--fundo02);
-    margin: 20px auto;
-    height: 55px;
-    width: 95%;
+    height: 60px;
+    width: 48%;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -123,7 +126,7 @@
 .containers {
     background-color: var(--fundo02);
     border-radius: 5px;
-    width: 96%;
+    width: 95%;
     margin: 15px auto 0px auto;
     display: flex;
     flex-direction: column;
@@ -145,6 +148,7 @@
 }
 
 .divContas, .divObjetivos, .divProxLanc {
+    margin-top: 10px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -314,4 +318,56 @@
 
 #confirmarDespesa {
     border-color: var(--despesas);
+}
+
+/* TELAS MAIORES */
+@media (min-width: 800px) {
+
+    .grid {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: calc(100% - 110px);
+        height: 100%;
+        grid-template-columns: 50% 50%;
+        grid-row: 6;
+        grid-template-areas: 
+        "saudacao saudacao "
+        "saldogeral saldogeral "
+        "recDesp operacoes"
+        "recDesp operacoes"
+        "minhascontas objetivos "
+        "proximos proximos ";
+    }
+
+    .divSaudacao {
+        margin: 10px 0px 0px 20px;
+    }
+
+    .divSaldoGeral {
+        margin: 10px auto;
+        height: 50px;
+    }
+
+    .containerInfosMensais { 
+        grid-area: recDesp; 
+        width: 95%; 
+        height: 80px;
+        margin: 10px auto 0px auto;
+    }
+
+
+    .divRec, .divDesp {
+        height: 100%;
+    }
+
+    .divOperacoes {
+        width: 95%;
+        height: 80px;
+        margin: 10px auto 0px auto;
+    }
+
+    .containerProxLanc {
+        width: 98% !important;
+    }
 }

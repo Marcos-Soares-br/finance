@@ -2,6 +2,7 @@ main {
     width: 100%;
     height: calc(100vh - 70px);
     overflow-y: scroll;
+    overflow-x: hidden;
     display: grid;
     grid-row: 5;
     grid-template-areas: 
@@ -23,7 +24,8 @@ main {
 }
 
 .fa-angle-left, .fa-angle-right {
-    font-size: 30px;
+    font-size: 30px !important;
+    cursor: pointer;
 }
 
 .divRelat {
@@ -140,4 +142,50 @@ h3 {
 
 .rec:hover {
     height: 10px;
+}
+
+/* Telas maiores */
+@media (min-width: 800px)  {
+    main {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: calc(100% - 90px);
+        height: 100%;
+        grid-template-columns: 50% 50%;
+        grid-row: 4;
+        grid-template-areas: 
+        "div-mes div-mes"
+        "resultados despXrec"
+        "receitas despesas";
+    }
+
+    .divMes {
+        width: 97.5%;
+        margin: 10px auto 0px auto;
+        border-radius: 5px;
+    }
+
+    .divRelat {
+        width: 96%;
+        margin: 15px auto 0px auto;
+        padding-bottom: 15px;
+        max-width: 600px;
+    }
+
+    .dr {
+        margin: auto auto 0px auto;
+    }
+    .porcetagens {
+        margin: 20px auto auto auto;
+    }
+
+    .receitas {
+        margin-bottom: 50px;
+    }
+
+    .despesas {
+        margin-bottom: 50px;
+    }
+
 }

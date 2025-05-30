@@ -14,7 +14,7 @@
     height: 100%;
     top: 0;
     left: 0;
-    z-index: 998;
+    z-index: 999;
 }
 
 :root {
@@ -51,6 +51,7 @@ body {
     -moz-user-select: none; 
     -ms-user-select: none;
     user-select: none;  
+    overflow-y: hidden;
 }
 
 nav {
@@ -100,6 +101,7 @@ a {
 .fa-pen-to-square {
     font-size: 20px !important;
     margin: auto 20px auto 0px;
+    cursor: pointer;
 }
 
 .iconsNav, .iconsOps {
@@ -109,7 +111,12 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
+
+.iconsNav:hover {
+    scale: 1.1;
+} 
 
 .iconsNav span {
     color: var(--texto02);
@@ -158,4 +165,18 @@ button:hover {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #0dbd62;
+}
+
+/* PARA COMPUTADORES */
+
+@media (min-width: 800px) {
+    nav {
+        left: 0px;
+        top: 0px;
+        width: 90px;
+        height: 100vh;
+        flex-direction: column;
+        align-items: center;
+    }
+
 }

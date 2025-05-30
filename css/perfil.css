@@ -132,14 +132,15 @@ section a {
     display: flex;
     width: 100%;
     align-items: center;
+    cursor: pointer;
+    color: var(--texto02);
 }
+.listaDeOpcoes li:hover {
+    color: var(--texto01);
+} 
 
 .listaDeOpcoes span {
     margin-left: 15px;
-}
-
-.divAlterarNome p {
-    margin: 10px;
 }
 
 .divAlterarNome input{
@@ -164,9 +165,12 @@ section a {
 }
 
 .divAlterarTema, .divAlterarNome {
+    max-width: 400px;
     width: 80%;
     height: 150px;
-    margin: 100px auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex; 
     flex-direction: column;
     align-items: center;
@@ -177,7 +181,7 @@ section a {
     justify-content: center;
 }
 
-.divAlterarTema p {
+.divAlterarTema p, .divAlterarNome p  {
     position: relative;
     top: -17px;
 }
@@ -206,7 +210,12 @@ section a {
 
 .fa-gear {
     font-size: 30px;
+    cursor: pointer;
 }
+
+.fa-gear:hover {
+    scale: 1.1;
+} 
 
 .fa-medal {
     font-size: 20px;
@@ -220,12 +229,17 @@ section a {
     position: absolute;
     left: 15px;
     top: 15px;
+    cursor: pointer;
 }
+.fa-arrow-left:hover {
+    scale: 1.2;
+} 
 
 .fa-angle-right {
     color: var(--texto01) !important;
     font-size: 20px;
     margin: auto 0px auto auto;
+    cursor: pointer;
 }
 
 .fa-sun {
@@ -237,4 +251,23 @@ section a {
     position: relative;
     top: 5px;
     right: -140px;
+}
+
+/* TELAS MAIORES */
+@media (min-width: 800px) {
+    .grid {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: calc(100% - 100px);
+        height: 100%;
+    }
+
+    section {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: calc(100% - 110px);
+    }
+
 }

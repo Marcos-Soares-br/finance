@@ -84,6 +84,7 @@ function abrirDivFlutuante(divPopup) {
     divPopup.classList.remove('ocultar');
 }
 
+background.addEventListener('click', () => {fecharTudo()})
 function fecharTudo() {
     background.classList.add('ocultar');
     divAlterarNome.classList.add('ocultar');

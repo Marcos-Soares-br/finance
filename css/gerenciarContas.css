@@ -6,11 +6,12 @@ main {
 main > a {
     position: absolute;
     top: 12px;
-    left: 25px;
+    left: 35px;
 }
 .fa-arrow-left {
-    font-size: 30px;
+    font-size: 25px !important;
     color: var(--texto01) !important;
+    cursor: pointer;
 }
 
 .divMinhasContas {
@@ -117,4 +118,20 @@ main > a {
     font-size: 25px;
     color: var(--texto02);
     cursor: pointer;
+}
+
+.bx-x-circle:hover {
+    scale: 1.1;
+} 
+
+/* TELAS MAIORES */
+@media (min-width: 800px) {
+    main {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: calc(100% - 100px);
+        height: 100%;
+    }
+
 }
