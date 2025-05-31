@@ -26,6 +26,12 @@ main {
 .fa-angle-left, .fa-angle-right {
     font-size: 30px !important;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+.fa-angle-left:hover, .fa-angle-right:hover {
+    scale: 1.1;
+    color: var(--texto01);
 }
 
 .divRelat {

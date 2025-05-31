@@ -66,13 +66,12 @@
     width: 90%;
     display: flex;
     margin: 25px auto;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-around;
+    align-items: flex-start;
 }
 
 .conquistas i {
     font-size: 29px;
-    margin: auto;
     filter: blur(2px) opacity(40%) ;
 }
 
@@ -192,29 +191,16 @@ section a {
     margin: 5px auto !important;
 }
 
-.mensagem {
-    position: absolute;
-    bottom: 80px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #333333b7;
-    border-radius: 5px;
-    width: 250px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 /* ICONES */
 
 .fa-gear {
-    font-size: 30px;
+    font-size: 25px !important;
     cursor: pointer;
 }
 
 .fa-gear:hover {
     scale: 1.1;
+    color: var(--texto01);
 } 
 
 .fa-medal {
@@ -246,7 +232,7 @@ section a {
     color: yellow !important;
 }
 
-.bx-x-circle {
+#fecharAltNome, #fecharAltTema {
     font-size: 24px;
     position: relative;
     top: 5px;
@@ -261,6 +247,7 @@ section a {
         right: 0;
         width: calc(100% - 100px);
         height: 100%;
+        grid-template-rows: 10% 20% 20% 50%;
     }
 
     section {

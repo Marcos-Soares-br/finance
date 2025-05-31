@@ -77,9 +77,9 @@ main > a {
 
 #fecharCriarConta {
     font-size: 27px;
-    position: relative;
-    left: 43%;
-    top: -20px;
+    position: fixed;
+    right: 0;
+    top: 10px;
 }
 
 #saldoConta {
@@ -113,14 +113,14 @@ main > a {
     box-shadow: 0px 0px 7px rgba(255, 255, 255);
 }
 
-.bx-x-circle { /* x */
+.fa-xmark { /* x */
     margin: auto 20px auto 0px;
     font-size: 25px;
     color: var(--texto02);
     cursor: pointer;
 }
 
-.bx-x-circle:hover {
+.fa-xmark:hover {
     scale: 1.1;
 } 
 

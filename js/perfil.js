@@ -41,16 +41,37 @@ function carregarInfos() {
 
 }
 
+const iconeSaldo5k = document.querySelector('#iconeSaldo5k');
+const iconeSaldo10k = document.querySelector('#iconeSaldo10k');
+const iconeSaldo50k = document.querySelector('#iconeSaldo50k');
+
 function verificarConquistas() {
     const saldo5k = localStorage.getItem('conquistaSaldo5k');
     const saldo10k = localStorage.getItem('conquistaSaldo10k');
     const saldo50k = localStorage.getItem('conquistaSaldo50k');
 
-    const iconeSaldo5k = document.querySelector('#iconeSaldo5k');
-    const iconeSaldo10k = document.querySelector('#iconeSaldo10k');
-    const iconeSaldo50k = document.querySelector('#iconeSaldo50k');
 
     if ( saldo5k == 'sim') {  iconeSaldo5k.style.filter =  `blur(0px) opacity(100%) brightness(2)` ;}
     if ( saldo10k == 'sim') { iconeSaldo10k.style.filter = `blur(0px) opacity(100%) brightness(2)` ;}
     if ( saldo50k == 'sim' ) {iconeSaldo50k.style.filter = `blur(0px) opacity(100%) brightness(2)` ;}
+}
+
+iconeSaldo5k.addEventListener('click', () => exibirTextoConquista('Liberado quando saldo maior que R$ 5.000!'));
+
+iconeSaldo10k.addEventListener('click', () => exibirTextoConquista('Liberado quando saldo maior que R$ 10.000!'));
+
+iconeSaldo50k.addEventListener('click', () => exibirTextoConquista('Liberado quando saldo maior que R$ 50.000!'));
+
+
+function exibirTextoConquista(mensagem) {
+    const texto = document.createElement('div');
+    texto.classList.add('mensagem');
+
+    texto.innerHTML = mensagem;
+    document.body.appendChild(texto);
+    setTimeout(fecharTexto, 3000);
+
+    function fecharTexto() {
+        document.body.removeChild(texto);
+    }
 }

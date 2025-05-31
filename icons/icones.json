@@ -52,7 +52,7 @@
         "icone": "<i class='fa-solid fa-plane'></i>"
     },
     {
-        "tags": "reformar reformas",
+        "tags": "reforma reformas",
         "icone": "<i class='fa-solid fa-paint-roller'></i>"
     },
     {
@@ -77,19 +77,19 @@
     },
     {
         "tags": "saúde médico hospital saude medico",
-        "icone": "< i class='bx  bxs-medical-kit'  ></i> "
+        "icone": "<i class='fa-solid fa-house-medical'></i>"
     },
     {
         "tags": "energia luz contadeluz",
         "icone": "<i class='fa-solid fa-bolt'></i>"
     },
     {
-        "tags": "ps4 ps5 playstation",
-        "icone": "< i class='bxl  bx-playstation'  ></i> "
+        "tags": "ps4 ps5 playstation xbox",
+        "icone": "<i class='fa-solid fa-gamepad'></i>"
     },
     {
-        "tags": "xbox",
-        "icone": "< i class='bxl  bx-xbox'  ></i> "
+        "tags": "wifi internet",
+        "icone": "<i class='fa-solid fa-wifi'></i>"
     },
     {
         "tags": "spotify",

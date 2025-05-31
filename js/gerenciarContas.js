@@ -30,7 +30,7 @@ function carregarDivContas() {
             pValor.setAttribute('class', 'valorConta');
             pValor.innerHTML = parseFloat(conta.saldo).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
-            const icEditar = `<i class="bx bx-x-circle" style="z-index: 90" id="${i}"></i>`;
+            const icEditar = `<i class="fa-solid fa-xmark" style="z-index: 90" id="${i}"></i>`;
             i++;
 
 

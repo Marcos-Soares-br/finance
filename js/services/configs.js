@@ -40,16 +40,10 @@ confirmarTrocaNome.addEventListener('click', () => {
         localStorage.setItem('nomedouser', nomeNovo.value);
         fecharTudo();
 
-        const mensagemDiv = document.createElement('div');
-        document.body.appendChild(mensagemDiv);
-        mensagemDiv.setAttribute('class', 'mensagem');
-        mensagemDiv.innerHTML = 'Nome alterado com sucesso!';
+        mostraMensagem('Nome alterado com sucesso!');
+
         document.getElementById('nomeUser').innerHTML = `<strong>${nomeNovo.value}</strong>`;
 
-        setTimeout(fecharMensagem, 1500);
-        function fecharMensagem() {
-            mensagemDiv.style.display = 'none';
-        }
     }
 });
 
@@ -98,15 +92,8 @@ apagProxRec.addEventListener('click', () => {
     if (apagar) {
         localStorage.removeItem('receitasFuturas');
 
-        const mensagemDiv = document.createElement('div');
-        document.body.appendChild(mensagemDiv);
-        mensagemDiv.setAttribute('class', 'mensagem');
-        mensagemDiv.innerHTML = 'Próximas receitas apagadas!';
+        mostraMensagem('Próximas receitas apagadas!');
 
-        setTimeout(fecharMensagem, 1500);
-        function fecharMensagem() {
-            mensagemDiv.style.display = 'none'
-        }
     }
 });
 
@@ -117,15 +104,7 @@ apagProxDesp.addEventListener('click', () => {
     if (apagar) {
         localStorage.removeItem('despesasFuturas');
 
-        const mensagemDiv = document.createElement('div');
-        document.body.appendChild(mensagemDiv);
-        mensagemDiv.setAttribute('class', 'mensagem');
-        mensagemDiv.innerHTML = 'Próximas despesas apagadas!';
-        
-        setTimeout(fecharMensagem, 1500);
-        function fecharMensagem() {
-            mensagemDiv.style.display = 'none'
-        }
+        mostraMensagem('Próximas despesas apagadas!');
     }
 });
 
@@ -146,3 +125,18 @@ relatErro.addEventListener('click', () => {
     const pergunta = prompt('Qual erro você identificou?');
     console.log(pergunta)
 });
+
+// MOSTRAR MENSAGEM NA TELA 
+
+function mostraMensagem(mensagem) {
+    const body = document.body;
+    const mensagemDiv = document.createElement('div');
+    body.appendChild(mensagemDiv);
+    mensagemDiv.setAttribute('class', 'mensagem');
+    mensagemDiv.innerHTML = mensagem;
+    
+    setTimeout(fecharMensagem, 3000);
+    function fecharMensagem() {
+        body.removeChild(mensagemDiv);
+    }
+}
