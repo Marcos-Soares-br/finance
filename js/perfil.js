@@ -1,4 +1,5 @@
 import { verificarTema } from "./utils/themeUtils.js";
+import { exibirMensagem } from "./services/alertas.js"
 
 addEventListener('DOMContentLoaded', () => {
     verificarTema();
@@ -56,22 +57,8 @@ function verificarConquistas() {
     if ( saldo50k == 'sim' ) {iconeSaldo50k.style.filter = `blur(0px) opacity(100%) brightness(2)` ;}
 }
 
-iconeSaldo5k.addEventListener('click', () => exibirTextoConquista('Liberado quando saldo maior que R$ 5.000!'));
+iconeSaldo5k.addEventListener('click', () => exibirMensagem('Liberado quando saldo maior que R$5.000!'));
 
-iconeSaldo10k.addEventListener('click', () => exibirTextoConquista('Liberado quando saldo maior que R$ 10.000!'));
+iconeSaldo10k.addEventListener('click', () => exibirMensagem('Liberado quando saldo maior que R$10.000!'));
 
-iconeSaldo50k.addEventListener('click', () => exibirTextoConquista('Liberado quando saldo maior que R$ 50.000!'));
-
-
-function exibirTextoConquista(mensagem) {
-    const texto = document.createElement('div');
-    texto.classList.add('mensagem');
-
-    texto.innerHTML = mensagem;
-    document.body.appendChild(texto);
-    setTimeout(fecharTexto, 3000);
-
-    function fecharTexto() {
-        document.body.removeChild(texto);
-    }
-}
+iconeSaldo50k.addEventListener('click', () => exibirMensagem('Liberado quando saldo maior que R$50.000!'));

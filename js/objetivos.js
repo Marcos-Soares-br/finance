@@ -1,5 +1,6 @@
 import { verificarTema } from "./utils/themeUtils.js";
 import { formatarMoeda, desformatarMoeda } from "./utils/formatUtils.js";
+import { exibirAlerta } from "./services/alertas.js";
 
 const background = document.querySelector('.background');
 let objetivos = JSON.parse(localStorage.getItem('objetivos')) || [];
@@ -141,7 +142,7 @@ async function criarObjetivo() {
 
         location.reload();
     } else {
-        alert('Preencha os dados corretamente');
+        exibirAlerta('Preencha os dados corretamente');
     }
 }
 

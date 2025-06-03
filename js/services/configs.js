@@ -1,3 +1,5 @@
+import { exibirAlerta, exibirMensagem } from "./alertas.js";
+
 const main = document.querySelector('.grid');
 const background = document.querySelector('.background');
 
@@ -33,14 +35,14 @@ const nomeNovo = document.getElementById('nomeNovo');
 
 confirmarTrocaNome.addEventListener('click', () => {
     if (nomeNovo.value.trim() == '') {
-        alert('Preencha o campo novo nome!');
+        exibirAlerta('Preencha o campo novo nome!');
         return;
 
     } else {
         localStorage.setItem('nomedouser', nomeNovo.value);
         fecharTudo();
 
-        mostraMensagem('Nome alterado com sucesso!');
+        exibirMensagem('Nome alterado com sucesso!');
 
         document.getElementById('nomeUser').innerHTML = `<strong>${nomeNovo.value}</strong>`;
 
@@ -92,7 +94,7 @@ apagProxRec.addEventListener('click', () => {
     if (apagar) {
         localStorage.removeItem('receitasFuturas');
 
-        mostraMensagem('Próximas receitas apagadas!');
+        exibirMensagem('Próximas receitas apagadas!');
 
     }
 });
@@ -104,7 +106,7 @@ apagProxDesp.addEventListener('click', () => {
     if (apagar) {
         localStorage.removeItem('despesasFuturas');
 
-        mostraMensagem('Próximas despesas apagadas!');
+        exibirMensagem('Próximas despesas apagadas!');
     }
 });
 
@@ -125,18 +127,3 @@ relatErro.addEventListener('click', () => {
     const pergunta = prompt('Qual erro você identificou?');
     console.log(pergunta)
 });
-
-// MOSTRAR MENSAGEM NA TELA 
-
-function mostraMensagem(mensagem) {
-    const body = document.body;
-    const mensagemDiv = document.createElement('div');
-    body.appendChild(mensagemDiv);
-    mensagemDiv.setAttribute('class', 'mensagem');
-    mensagemDiv.innerHTML = mensagem;
-    
-    setTimeout(fecharMensagem, 3000);
-    function fecharMensagem() {
-        body.removeChild(mensagemDiv);
-    }
-}

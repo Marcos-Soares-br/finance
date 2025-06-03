@@ -1,5 +1,6 @@
 import { verificarTema } from "./utils/themeUtils.js";
 import { formatarMoeda, desformatarMoeda } from "./utils/formatUtils.js";
+import { exibirAlerta } from "./services/alertas.js";
 
 const divMinhasContas = document.querySelector('.divMinhasContas');
 const background = document.querySelector('.background');
@@ -135,7 +136,7 @@ function criarConta() {
         location.reload();
 
     } else {
-        alert('Preencha um nome para a conta!');
+        exibirAlerta('Preencha um nome para a conta!');
     }
 
 }

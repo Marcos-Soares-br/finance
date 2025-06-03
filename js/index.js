@@ -2,6 +2,7 @@ import { verificarTema } from "./utils/themeUtils.js";
 import { DateUtils, escreverData  } from "./utils/dateUtils.js";
 import { formatarMoeda } from "./utils/formatUtils.js";
 import { registrarDespesa, registrarReceita, calcularRecAtualMes, calcularDespAtualMes} from "./services/financeServices.js";
+import { exibirAlerta } from "./services/alertas.js"
 
 addEventListener('DOMContentLoaded', () => {
     verificarTema();
@@ -396,34 +397,51 @@ function verificarReceitas() {
         const dataRec = new DateUtils(receita.data);
         if (!dataRec.eFutura()) {
             registrarReceita('unico', receita.nome, receita.valor, receita.contaRecebimento, receita.data);
-            receitasFuturas = receitasFuturas.splice(i, i);
+            receitasFuturas = receitasFuturas.filter( (elemento, indice) => {
+                if (indice != i) {
+                    return elemento;
+                }
+            });
 
             localStorage.setItem('receitasFuturas', JSON.stringify(receitasFuturas) );
+            calcularRecAtualMes();
             location.reload();
         }
     });
 }
 
 function verificarDespesas() {
-    despesasFuturas.forEach( (despesa, indice) => {
+    despesasFuturas.forEach( (despesa, identificador) => {
         const dataDesp = new DateUtils(despesa.data);
 
         if (!dataDesp.eFutura()) {
             let indiceConta;
+
             contas.map( (conta, i) => {
                 if(conta.nome == despesa.nome) { indiceConta = i; }
             });
 
-            if( contas[indiceConta].saldo >= despesa.valor) {
+            if( indiceConta != undefined && contas[indiceConta].saldo >= despesa.valor) {
                 registrarDespesa('unico', despesa.nome, despesa.valor, despesa.contaDeDesconto, indiceConta, despesa.data);
                 location.reload();
-            } else {
-                alert('Uma despesa agendada não foi registrada por falta de saldo!');
+
+            } else if (indiceConta == undefined ) {
+                exibirAlerta('Uma despesa agendada não foi registrada, conta de desconto inexistente!');
+
+            } else  {
+                exibirAlerta('Uma despesa agendada não foi registrada por falta de saldo!');
             }
 
-            despesasFuturas = despesasFuturas.splice(indice, indice);
+            
+            despesasFuturas = despesasFuturas.filter( (elemento, indice) => {
+                if (indice != identificador) {
+                    return elemento;
+                }
+            });
 
             localStorage.setItem('despesasFuturas', JSON.stringify(despesasFuturas) );
+            calcularDespAtualMes();
+            location.reload();
         }
 
     });
