@@ -396,16 +396,27 @@ function verificarReceitas() {
     receitasFuturas.forEach( (receita, i) => {
         const dataRec = new DateUtils(receita.data);
         if (!dataRec.eFutura()) {
-            registrarReceita('unico', receita.nome, receita.valor, receita.contaRecebimento, receita.data);
-            receitasFuturas = receitasFuturas.filter( (elemento, indice) => {
-                if (indice != i) {
-                    return elemento;
-                }
+
+            let indiceConta;
+            contas.map( (conta, i) => {
+                if(conta.nome == receita.nome) { indiceConta = i; }
             });
 
-            localStorage.setItem('receitasFuturas', JSON.stringify(receitasFuturas) );
-            calcularRecAtualMes();
-            location.reload();
+            if(indiceConta != undefined) {
+                registrarReceita('unico', receita.nome, receita.valor, receita.contaRecebimento, receita.data);
+                receitasFuturas = receitasFuturas.filter( (elemento, indice) => {
+                    if (indice != i) {
+                        return elemento;
+                    }
+                });
+
+                localStorage.setItem('receitasFuturas', JSON.stringify(receitasFuturas) );
+                calcularRecAtualMes();
+                location.reload();
+            } else {
+                exibirAlerta('Uma receita agendada não foi registrada, conta de recebimento inexistente!');
+            }
+
         }
     });
 }
