@@ -24,6 +24,7 @@
     --fundo01: #eee;
     --fundo02: #fff;
     --fundoNav: #eee;
+    --sombra: #00000026;
     --texto01: #000;
     --texto02: #555;
 }
@@ -34,6 +35,7 @@
   --texto01: #fff;
   --texto02: #aaa;
   --fundoNav: #191919;
+  --sombra: #transparent;
 }
 
 .ocultar {
@@ -63,6 +65,7 @@ nav {
     height: 70px;
     display: flex;
     justify-content: space-around;
+    box-shadow: 1px 0px 20px 0px var(--sombra);
 }
 
 a {
@@ -159,6 +162,9 @@ button:hover {
 }
 
 .mensagem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     bottom: 80px;
     left: 50%;

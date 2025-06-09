@@ -115,7 +115,7 @@ background.addEventListener('click', () => {fecharDiv(); });
 document.querySelector('#criarConta').addEventListener('click', () => { criarConta()})
 
 function criarConta() {
-    let conta = { nome: "", saldo: '' };
+    let conta = { nome: "", saldo: 0.00 };
 
     let saldoConta = document.querySelector('#saldoConta');
     saldoConta.value = desformatarMoeda('saldoConta');
@@ -126,7 +126,7 @@ function criarConta() {
 
     if(nomeDaConta.trim() != '') {
         conta.nome = nomeDaConta;
-        conta.saldo = saldoConta;
+        conta.saldo = saldoConta== 'undefined' ? '0.00' : saldoConta;
 
         let arrayContas = JSON.parse(localStorage.getItem('contas')) || [];
 

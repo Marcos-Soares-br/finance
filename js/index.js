@@ -10,9 +10,8 @@ addEventListener('DOMContentLoaded', () => {
     carregarSaldoGeral();
     carregarReceitaDoMes();
     carregarDespesaDoMes();
-    carregarDivContas();
+    carregarDivContas();;
     carregarDivObjetivos();
-    carregarDivProx();
     verificarReceitas();
     verificarDespesas();
     calcularDadosMensais();
@@ -112,6 +111,7 @@ function carregarDespesaDoMes() {
 
 function carregarDivContas() {
     const divMinhasContas = document.querySelector('#divContasIndex');
+    divMinhasContas.innerHTML = '';
 
     if( contas.length > 0 ) {
         contas.forEach( async (conta) => {
@@ -210,6 +210,7 @@ document.querySelector('#btnDetalhesObj').addEventListener('click', () => {
 
 function carregarDivProx() {
     const divProximos = document.querySelector('.divProxLanc');
+    divProximos.innerHTML = '';
 
     const recFuturas = JSON.parse(localStorage.getItem('receitasFuturas')) || [];
     const despFuturas = JSON.parse(localStorage.getItem('despesasFuturas')) || [];
@@ -362,7 +363,8 @@ function  calcularDadosMensais() {
 
         localStorage.setItem('recalcularDespRec', `${ano}-${mes}`);
 
-        location.reload();
+        carregarReceitaDoMes();
+        carregarDespesaDoMes();
     } 
 } 
 
@@ -392,71 +394,63 @@ let despesasFuturas = JSON.parse(localStorage.getItem('despesasFuturas')) || [];
 let receitasFuturas = JSON.parse(localStorage.getItem('receitasFuturas')) || [];
 
 function verificarReceitas() {
-
-    receitasFuturas.forEach( (receita, i) => {
+    receitasFuturas = receitasFuturas.filter((receita) => {
         const dataRec = new DateUtils(receita.data);
+
         if (!dataRec.eFutura()) {
+            const contaExiste = contas.some(conta => conta.nome == receita.contaRecebimento);
 
-            let indiceConta;
-            contas.map( (conta, i) => {
-                if(conta.nome == receita.nome) { indiceConta = i; }
-            });
-
-            if(indiceConta != undefined) {
+            if (contaExiste) {
                 registrarReceita('unico', receita.nome, receita.valor, receita.contaRecebimento, receita.data);
-                receitasFuturas = receitasFuturas.filter( (elemento, indice) => {
-                    if (indice != i) {
-                        return elemento;
-                    }
-                });
-
-                localStorage.setItem('receitasFuturas', JSON.stringify(receitasFuturas) );
                 calcularRecAtualMes();
-                location.reload();
+                carregarReceitaDoMes();
+                carregarDivContas();
             } else {
                 exibirAlerta('Uma receita agendada não foi registrada, conta de recebimento inexistente!');
             }
 
+            return false; // Remove receita processada
         }
+        return true; 
     });
+
+    localStorage.setItem('receitasFuturas', JSON.stringify(receitasFuturas));
+    carregarDivProx();
 }
 
+
 function verificarDespesas() {
-    despesasFuturas.forEach( (despesa, identificador) => {
+    despesasFuturas = despesasFuturas.filter((despesa) => {
+        console.log('entrando no filter')
         const dataDesp = new DateUtils(despesa.data);
+        console.log('dataDesp:' + dataDesp.dataRecebida)
 
         if (!dataDesp.eFutura()) {
-            let indiceConta;
+            console.log('data não é futura')
+            const indiceConta = contas.findIndex(conta => conta.nome == despesa.contaDeDesconto);
 
-            contas.map( (conta, i) => {
-                if(conta.nome == despesa.nome) { indiceConta = i; }
-            });
+            if (indiceConta != -1 && contas[indiceConta].saldo >= despesa.valor) {
+                registrarDespesa('unico', despesa.nome, despesa.valor, indiceConta, despesa.data)
+                calcularDespAtualMes();
+                carregarDespesaDoMes();
+            } else if (indiceConta == -1) {
 
-            if( indiceConta != undefined && contas[indiceConta].saldo >= despesa.valor) {
-                registrarDespesa('unico', despesa.nome, despesa.valor, despesa.contaDeDesconto, indiceConta, despesa.data);
-                location.reload();
-
-            } else if (indiceConta == undefined ) {
                 exibirAlerta('Uma despesa agendada não foi registrada, conta de desconto inexistente!');
-
-            } else  {
+            } else {
+                
                 exibirAlerta('Uma despesa agendada não foi registrada por falta de saldo!');
             }
 
-            
-            despesasFuturas = despesasFuturas.filter( (elemento, indice) => {
-                if (indice != identificador) {
-                    return elemento;
-                }
-            });
-
-            localStorage.setItem('despesasFuturas', JSON.stringify(despesasFuturas) );
-            calcularDespAtualMes();
-            location.reload();
+            return false; // Remove despesa processada
         }
 
+        return true; 
     });
+
+    localStorage.setItem('despesasFuturas', JSON.stringify(despesasFuturas));
+    carregarDivProx();
 }
+
 
 //ADICIONANDO EVENTOS DE CLICK PARA SELECIONAR O TIPO DO LANÇAMENTO
 

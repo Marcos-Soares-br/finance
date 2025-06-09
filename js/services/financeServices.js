@@ -5,6 +5,7 @@ function registrarDespesa(tipo, nomeDesp, valorDesp, indice, dataDesp) {
     let infosDespesas = JSON.parse(localStorage.getItem('infosDespesas')) || [];
     valorDesp = parseFloat(valorDesp);
 
+    console.log('indice:' + indice + ' conta: '+ contas[indice] + ' saldo: ' + contas[indice] +' valorDesp: ' + valorDesp)
     contas[indice].saldo = parseFloat(contas[indice].saldo) - valorDesp;
 
     let infos = { nome: nomeDesp, valor: valorDesp, contaDeDesconto: contas[indice].nome, data: dataDesp, lancamento: tipo }
@@ -37,7 +38,7 @@ function registrarDespFuturas(tipo, nome, valor, conta, data) {
   anoData = parseInt(anoData[2]);
 
   if (tipo == 'unico') {
-    let infos = { nome: nome, valor: valor, contaRecebimento: conta, data: data, lancamento: tipo };
+    let infos = { nome: nome, valor: valor, contaDeDesconto: conta, data: data, lancamento: tipo };
 
     despesasFuturas.push(infos);
 
@@ -49,7 +50,7 @@ function registrarDespFuturas(tipo, nome, valor, conta, data) {
         let partes = dataRecebida.split('/');
         anoData = parseInt(partes[2]);
 
-        let infos = { nome: nome, valor: valor, contaRecebimento: conta, data: dataRecebida, lancamento: 'unico' };
+        let infos = { nome: nome, valor: valor, contaDeDesconto: conta, data: dataRecebida, lancamento: 'unico' };
 
         despesasFuturas.push(infos);
 
@@ -66,7 +67,7 @@ function registrarDespFuturas(tipo, nome, valor, conta, data) {
           break;
         }
 
-        let infos = { nome: nome, valor: valor, contaRecebimento: conta, data: dataRecebida, lancamento: 'unico' };
+        let infos = { nome: nome, valor: valor, contaDeDesconto: conta, data: dataRecebida, lancamento: 'unico' };
 
         despesasFuturas.push(infos);
 
@@ -147,6 +148,32 @@ function registrarRecFuturas(tipo, nome, valor, conta, data) {
   }
 }
 
+function registarTransf(contaOrigem, valor, contaDestino) {
+  let contas = JSON.parse(localStorage.getItem('contas'));
+  let transfPossivel = false;
+
+  contas.map( (conta) => {
+    if (conta.nome == contaOrigem && conta.saldo >= valor) {
+      transfPossivel = true;
+      conta.saldo = parseFloat(conta.saldo) - parseFloat(valor);
+    }
+  });
+
+  if(!transfPossivel) { alert('Transferência não realizada, saldo insuficiente na conta origem.'); return;}
+
+  contas.map( (conta) => {
+    console.log('Conta do array: ' + conta.nome + 'conta do select: ' + contaDestino)
+    if (conta.nome == contaDestino && transfPossivel) {
+      conta.saldo = parseFloat(conta.saldo) + parseFloat(valor);
+    }
+  });
+
+  localStorage.setItem('contas', JSON.stringify(contas));
+
+  location.reload();
+
+}
+
 function calcularRecAtualMes() {
   let receitaMesAtual = 0.00;
   let infosReceitas = JSON.parse(localStorage.getItem('infosReceitas')) || [];
@@ -199,4 +226,4 @@ function calcularDespAtualMes() {
 
 
 
-export {registrarDespesa, registrarDespFuturas, registrarReceita, registrarRecFuturas, calcularDespAtualMes, calcularRecAtualMes}
+export {registrarDespesa, registrarDespFuturas, registrarReceita, registrarRecFuturas, registarTransf, calcularDespAtualMes, calcularRecAtualMes}

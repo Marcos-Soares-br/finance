@@ -1,6 +1,6 @@
 import { desformatarMoeda } from "./utils/formatUtils.js";
 import { DateUtils, formatarData } from "./utils/dateUtils.js";
-import {registrarReceita, registrarRecFuturas, registrarDespesa, registrarDespFuturas, calcularDespAtualMes, calcularRecAtualMes} from "./services/financeServices.js";
+import {registrarReceita, registrarRecFuturas, registrarDespesa, registrarDespFuturas, registarTransf, calcularDespAtualMes, calcularRecAtualMes} from "./services/financeServices.js";
 
 // VALIDAR E REGISTRAR RECEITAS //
 
@@ -145,31 +145,7 @@ btnRegistrarTransf.addEventListener('click', () => {
   registarTransf(contaOrigem.value, valor, contaDestino.value);
 });
 
-function registarTransf(contaOrigem, valor, contaDestino) {
-  let contas = JSON.parse(localStorage.getItem('contas'));
-  let transfPossivel = false;
 
-  contas.map( (conta) => {
-    if (conta.nome == contaOrigem && conta.saldo > valor) {
-      transfPossivel = true;
-      conta.saldo = parseFloat(conta.saldo) - parseFloat(valor);
-    }
-  });
-
-  if(!transfPossivel) { alert('Transferência não realizada, saldo insuficiente na conta origem.'); return;}
-
-  contas.map( (conta) => {
-    console.log('Conta do array: ' + conta.nome + 'conta do select: ' + contaDestino)
-    if (conta.nome == contaDestino && transfPossivel) {
-      conta.saldo = parseFloat(conta.saldo) + parseFloat(valor);
-    }
-  });
-
-  localStorage.setItem('contas', JSON.stringify(contas));
-
-  location.reload();
-
-}
 
 dataDesp.addEventListener('input', () => {formatarData('dataDesp'); });
 dataDesp.addEventListener('focus', () => dataDesp.value = '');
