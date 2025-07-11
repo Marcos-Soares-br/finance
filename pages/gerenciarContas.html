@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar contas</title>
+    <link rel="shortcut icon" href="../icons/fav-icon.png" type="image/x-icon">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../css/gerenciarContas.css">
+    <link rel="stylesheet" href="../css/allPages.css">
+
+    <!-- Icones do font Awesome --> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--  icones do boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body class="temaEscuro">
+    <div class="background ocultar"></div>
+    <nav>
+        <a href="../index.html"> 
+            <div class="iconsNav">                
+                <i class="fa-solid fa-house"></i>    
+                <span>Inicio</span> 
+            </div> 
+        </a>
+        
+        <a href="objetivos.html">  
+            <div class="iconsNav">  
+                <i class="fa-solid fa-bullseye"></i>                            
+                <span>Objetivos</span> 
+            </div> 
+        </a>
+        
+        <a href="relatorios.html">  
+            <div class="iconsNav"> 
+                <i class="fas fa-signal"></i>                                   
+                <span>Relatórios</span> 
+            </div> 
+        </a>
+        
+        <a href="perfil.html">  
+            <div class="iconsNav">     
+                <i class="fas fa-user-circle" style="color: #0ff77e;"></i>                              
+                <span style="color: #0ff77e;">Perfil</span> 
+            </div> 
+        </a>
+    </nav>
+
+    <main>
+        <a href="perfil.html"><i class="fa-solid fa-arrow-left"></i></a>
+        <h1 class="titulo" style="width: 96%">Minhas contas</h1>
+
+        <div class="divMinhasContas">  </div>
+    </main>
+
+    <div class="divCriarConta ocultar">
+        <div>
+            <i class='fa-solid fa-xmark' id="fecharCriarConta"></i>
+            <p>Digite o saldo:</p>
+            <input type="text" placeholder="R$ 0,00" required id="saldoConta" autocomplete="off">
+            <input type="text" placeholder="Nome da conta" id="nomeDaConta">
+
+            <button id="criarConta">Criar</button>
+        </div>
+    </div>
+
+    <script src="../js/gerenciarContas.js" type="module"></script>
+</body>
+</html>

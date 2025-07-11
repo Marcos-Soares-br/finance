@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link rel="shortcut icon" href="../icons/fav-icon.png" type="image/x-icon">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../css/perfil.css">
+    <link rel="stylesheet" href="../css/allPages.css">
+
+    <!-- Icones do font Awesome --> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--  icones do boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body class="temaEscuro">
+    <div class="background ocultar"></div>
+    <nav>
+        <a href="../index.html"> 
+            <div class="iconsNav">                
+                <i class="fa-solid fa-house"></i>    
+                <span>Inicio</span> 
+            </div> 
+        </a>
+        
+        <a href="objetivos.html">  
+            <div class="iconsNav">  
+                <i class="fa-solid fa-bullseye"></i>                            
+                <span>Objetivos</span> 
+            </div> 
+        </a>
+        
+        <a href="relatorios.html">  
+            <div class="iconsNav"> 
+                <i class="fas fa-signal"></i>                                   
+                <span>Relatórios</span> 
+            </div> 
+        </a>
+        
+        <a href="#">  
+            <div class="iconsNav">     
+                <i class="fas fa-user-circle" style="color: #0ff77e;"></i>                              
+                <span style="color: #0ff77e;">Perfil</span> 
+            </div> 
+        </a>
+    </nav>
+    
+<main class="grid">
+
+    <div class="nome">
+        <p id="nomeUser"></p>
+    </div>
+
+    <div class="config">
+        <i class="fa-solid fa-gear" ></i>
+    </div>
+
+    <div class="status">
+        <div><img src="" alt="status" id="foto"></div>
+        <div class="infos">
+            <p id="pMaiorSaldo">Maior saldo: </p> 
+            <p id="pMaiorRec">Maior receita mensal: </p>
+            <p id="pMaiorDesp">Maior despesa mensal: </p>
+        </div>
+    </div>
+
+    <div class="conqTitulo">
+        <i class="fa-solid fa-medal"></i>
+        Conquistas
+    </div>
+
+    <div class="conquistas">
+        <i class='bx  bx-dollar-circle nvl1' id="iconeSaldo5k" title="Saldo Geral maior que R$ 5.000,00" ></i> 
+        <i class="fa-solid fa-coins nvl2" id="iconeSaldo10k" title="Saldo Geral maior que R$ 10.000,00"></i>
+        <i class="fa-solid fa-building-columns nvl3" id="iconeSaldo50k" title="Saldo Geral maior que R$ 50.000,00"></i>
+
+    </div>
+
+
+</main>
+
+<section class="grid2 ocultar">
+    <div class="topo"> <i class="fa-solid fa-arrow-left"></i> <p>Configurações</p></div>
+
+    <ul class="listaDeOpcoes">
+        <li id="altNome"> 
+            <i class='bx bxs-pencil'></i> <span>Alterar nome</span> <i class="fa-solid fa-angle-right"></i>     
+        </li>
+
+        <li id="altTema"> 
+            <i class="fa-solid fa-circle-half-stroke"></i> <span>Alterar tema</span> <i class="fa-solid fa-angle-right"></i>     
+        </li>
+
+        <a href="gerenciarContas.html"> <li> 
+            <i class="fa-solid fa-landmark"></i> <span>Gerenciar contas</span> <i class="fa-solid fa-angle-right"></i>  
+        </li> </a>  
+
+        <li id="apagProxRec"> 
+            <i class="fas fa-trash"></i> <span>Apagar próximas receitas</span> <i class="fa-solid fa-angle-right"></i>     
+        </li>
+
+        <li id="apagProxDesp"> 
+            <i class="fas fa-trash"></i> <span>Apagar próximas despesas</span> <i class="fa-solid fa-angle-right"></i>     
+        </li>
+
+        <li id="apagTudo"> 
+            <i class="fas fa-trash"></i> <span>Apagar todos dados</span> <i class="fa-solid fa-angle-right"></i>     
+        </li>
+
+        <li id="relatErro"> 
+            <i class="fa-solid fa-flag"></i> <span>Relatar erros</span> <i class="fa-solid fa-angle-right"></i>     
+        </li>
+    </ul>
+</section>
+
+<div class="divAlterarNome ocultar">
+    <i class='fa-solid fa-xmark' id="fecharAltNome"></i>
+    <p>Alterar nome</p>
+
+    <input type="text" placeholder="Novo nome" id="nomeNovo" required>
+
+    <div class="divBotoes">
+        <button id="cancelarTrocaNome">Cancelar</button>
+        <button id="confirmarTrocaNome">Confirmar</button>
+    </div>
+</div>
+
+<div class="divAlterarTema ocultar">
+    <i class='fa-solid fa-xmark' id="fecharAltTema"></i>
+    <p>Escolha o tema</p>
+    <button id="temaClaro"> <i class="fa-solid fa-sun"></i> Claro</button>
+    <button id="temaEscuro"> <i class="fa-solid fa-moon"></i> Escuro</button>
+</div>
+
+    <script src="../js/perfil.js" type="module"></script>
+    <script src="../js/services/configs.js" type="module"></script>
+</body>
+</html>

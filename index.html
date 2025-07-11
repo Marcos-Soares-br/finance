@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance</title>
+    <link rel="manifest" href="./manifest.json">
+    <link rel="shortcut icon" href="icons/fav-icon.png" type="image/x-icon">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/allPages.css">
+
+    <!-- Icones do font Awesome --> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--  icones do boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body class="temaEscuro">
+    <div class="background ocultar"></div>
+    <nav>
+        <a href="#"> 
+            <div class="iconsNav">                
+                <i class="fa-solid fa-house" style="color: #0ff77e;"></i>    
+                <span style="color: #0ff77e;">Inicio</span> 
+            </div> 
+        </a>
+        
+        <a href="pages/objetivos.html">  
+            <div class="iconsNav">  
+                <i class="fa-solid fa-bullseye"></i>                            
+                <span>Objetivos</span> 
+            </div> 
+        </a>
+        
+        <a href="pages/relatorios.html">  
+            <div class="iconsNav"> 
+                <i class="fas fa-signal"></i>                                   
+                <span>Relatórios</span> 
+            </div> 
+        </a>
+        
+        <a href="pages/perfil.html">  
+            <div class="iconsNav">     
+                <i class="fas fa-user-circle"></i>                              
+                <span>Perfil</span> 
+            </div> 
+        </a>
+    </nav>
+    
+    <main class="grid">
+        <div class="divSaudacao">
+            <p id="saudacao"></p>
+        </div>
+
+        <!-- Informações iniciais -->
+        <div class="divSaldoGeral">
+            <label>Saldo Geral:</label>
+            <p id="saldoGeral"> <i class='bx bxs-show olho' id="olho" title="Ocultar"></i></p>
+            <!-- <i class='bx bxs-show olho' id="olho" title="Ocultar"></i> -->
+        </div>
+
+        <div class="containerInfosMensais">
+            <div class="divRec">
+                <span>receita do mês</span>
+                <p class="pRec valor"></p>
+            </div>
+            <div class="divDesp">
+                <span>despesa do mês</span>
+                <p class="pDesp valor"></p>
+            </div>
+        </div>
+
+        <!-- Div de operações -->
+        <div class="divOperacoes">
+            <div class="iconsOps ops" id="adcReceita" title="registrar receita"> <i class='bx bx-plus-circle'></i> <span>receita</span></div>
+
+            <div class="iconsOps ops" id="adcDespesa" title="registrar despesa"> <i class='bx bx-minus-circle' ></i> <span>depesa</span></div>
+
+            <div class="iconsOps ops" id="adcTransferencia" title="registrar transferência"> <i class='bx bx-transfer'></i> <span>transf.</span></div>
+        </div>
+
+        <!-- Div para mostrar as contas -->
+        <div class="containerMinhasContas containers">
+            <h1>Minhas Contas</h1>
+            <div class="divContas" id="divContasIndex"> </div>
+            <button id="btnGerenciarContas">Gerenciar Contas</button>
+        </div>
+
+        <!-- Div para mostrar os objetivos -->
+         <div class="containerMeusObjetivos containers">
+            <h1>Meus Objetivos</h1>
+            <div class="divObjetivos" id="divObjetivosIndex"> </div>
+            <button id="btnDetalhesObj">Detalhes Objetivos</button>
+         </div>
+
+         <!-- Div para mostrar os próximos lançamentos -->
+          <div class="containerProxLanc containers">
+            <h1>Próximos Lançamentos</h1>
+            <div class="divProxLanc"></div>
+          </div>
+
+    </main>
+
+    <!-- Div para registrar Receitas -->
+    <div class="divsRegistros ocultar" id="divRegistrarReceitas">
+        <i class="fa-solid fa-xmark" id="fecharDivRec"></i>
+        <h2>Registrar receita</h2>
+
+        <input type="text" id="valorRec" placeholder="R$ 0,00" class="inputValor" autocomplete="off">
+
+        <label for="nomeRec">Nome da receita:</label>
+        <input type="text" name="nomeRec" id="nomeRec" placeholder="Exemplo: Salário">
+
+        <label for="contaRec">Receber em:</label>
+        <select name="contaRec" id="contaRec" class="selects"> </select>
+
+        <label for="dataRec">Data (DD/MM/AAAA):</label>
+        <input type="text" name="dataRec" id="dataRec" autocomplete="off">
+
+        <label for="lancamento">Lançamento:</label>
+        <div class="containerRadios">
+            <label class="radio">
+              <input type="radio" name="radioRec" value="unico" id="radioUnicoRec" class="inputsRadios">
+              <span class="name">Único</span>
+            </label>
+
+            <label class="radio">
+              <input type="radio" name="radioRec" value="semanal" id="radioSemanalRec" class="inputsRadios">
+              <span class="name">Semanal</span>
+            </label>
+            
+            <label class="radio">
+              <input type="radio" name="radioRec" value="mensal" id="radioMensalRec" class="inputsRadios">
+              <span class="name">Mensal</span>
+            </label> 
+        </div> 
+
+        <button id="registrarReceita">Registrar</button>
+    </div>
+
+    <!-- Div para registrar Despesas -->
+    <div class="divsRegistros ocultar" id="divRegistrarDespesas">
+        <i class="fa-solid fa-xmark" id="fecharDivDesp"></i>
+        <h2>Adicionar despesas</h2>
+
+        <input type="text" id="valorDesp" placeholder="R$ 0,00" class="inputValor" autocomplete="off">
+
+        <label for="nomeDesp">Nome da despesa:</label>
+        <input type="text" name="nomeDesp" id="nomeDesp" placeholder="Exemplo: Aluguel">
+
+        <label for="contaDesp">Descontar em:</label>
+        <select name="contaDesp" id="contaDesp" class="selects"> </select>
+
+        <label for="dataDesp">Data (DD/MM/AAAA):</label>
+        <input type="text" name="dataDesp" id="dataDesp" autocomplete="off">
+
+        <label for="lancamento">Lançamento:</label>
+        <div class="containerRadios">
+            <label class="radio">
+              <input type="radio" name="radioDesp" value="unico" id="radioUnicoDesp" class="inputsRadios">
+              <span class="name">Único</span>
+            </label>
+
+            <label class="radio">
+              <input type="radio" name="radioDesp" value="semanal" id="radioSemanalDesp" class="inputsRadios">
+              <span class="name">Semanal</span>
+            </label>
+            
+            <label class="radio">
+              <input type="radio" name="radioDesp" value="mensal" id="radioMensalDesp" class="inputsRadios">
+              <span class="name">Mensal</span>
+            </label> 
+        </div> 
+
+        <button id="registrarDespesa">Registrar</button>
+    </div>
+
+    <!-- Div para realizar Transferências -->
+    <div class="divsRegistros ocultar" id="divRealizarTransf">
+        <i class="fa-solid fa-xmark" id="fecharDivTransf"></i>
+        <h2>Transferências</h2>
+
+        <input type="text" name="valor" id="valorTransf" placeholder="R$ 0,00"  class="inputValor" autocomplete="off">
+
+        <label for="contaOrigem">Transferir de:</label>
+        <select name="contaOrigem" id="contaOrigem" class="selects"></select>  
+        
+        <label for="contaDestino">Para:</label>
+        <select name="contaDestino" id="contaDestino" class="selects"></select>   
+
+        <button id="realizarTransf">Transferir</button>
+    </div>
+
+    <script src="js/index.js" type="module"></script>
+    <script src="js/rec-desp-tranf.js" type="module"></script>
+</body>
+</html>

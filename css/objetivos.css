@@ -1,0 +1,195 @@
+main {
+    width: 100%;
+    height: calc(100vh - 70px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: scroll;
+}
+
+.divObjetivos {
+    width: 100%;
+    background-color: var(--fundo01);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid 1px var(--texto02);
+    border-radius: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.divItem, .divItem2 {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0px 15px 0px;
+}
+.divItem2 {
+    margin: 1px 0px !important;
+    color: var(--texto02);
+}
+
+.divItem i {
+    font-size: 30px;
+    color: var(--texto02);
+}
+
+.nomeObj {
+    color: var(--texto01);
+    align-self: center;
+}
+.valorObj {
+    color: var(--transf);
+}
+
+.divFlutuante {
+    position: absolute;
+    margin: auto;
+    width: 80%;
+    max-width: 400px;
+    height: 250px;
+    z-index: 999;
+    box-shadow: 0px 0px 7px rgba(129, 129, 129, 0.70);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#divCriarObj > div{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: var(--fundo02);
+}
+#divCriarObj p {
+    color: var(--texto02);
+    text-align: center;
+
+}
+#valorObj, #novoValorObj {
+    background-color: #00000000;
+    color: var(--texto01);
+    border: none;
+    outline: none;
+    padding: 1px 4px;
+    max-width: 160px;
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+}
+#valorObj::placeholder {
+    color: var(--texto01);
+}
+#nomeDaMeta, #novoNomeObj {
+    text-indent: 10px;
+    background-color: #00000000;
+    color: var(--texto01);
+    border: none;
+    outline: none;
+    /* margin: 5px auto; */
+    height: 35px;
+    border-radius: 7px;
+    box-shadow: 0px 0px 7px rgba(255, 255, 255, 0.258);
+}
+#nomeDaMeta:focus {
+    box-shadow: 0px 0px 7px rgba(255, 255, 255);
+}
+
+label{
+    color: var(--texto02);
+    margin: 5px auto;
+}
+
+#tipoObj {
+    width: 60%;
+    height: 30px;
+    background-color: var(--fundo02);
+    color: var(--texto01);
+    margin: 1px auto 10px auto;
+    text-indent: 5px;
+    border-radius: 5px;
+    border: solid 1px var(--texto02);
+    outline: none;
+}
+
+select option{
+    background-color: var(--fundo02) ;
+    color: var(--texto01) !important;
+}
+#criarObjetivo {
+    margin-top: 15px;
+}
+
+#fecharCriarObj, #fecharEditarObj {
+    position: relative;
+    top: 10px;
+    left: 88%;
+}
+
+#divEditar {
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    background-color: var(--fundo02);
+}
+
+#divEditar > div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#divEditar p {
+    text-align: center;
+    margin: auto;
+}
+
+.divInputs {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#deletarObj {
+    margin-left: 10px;
+    border-color: var(--despesas);
+}
+
+/* TELAS MAIORES */
+@media (min-width: 800px) {
+    main {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: calc(100% - 100px);
+        height: 100%;
+    }
+
+    .divObjetivos {
+        flex-flow: row wrap;
+    }
+
+    .container {
+        max-width: 500px;
+        margin: 10px auto;
+    }
+
+    .divFlutuante {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

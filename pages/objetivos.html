@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetivos</title>
+    <link rel="shortcut icon" href="../icons/fav-icon.png" type="image/x-icon">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../css/objetivos.css">
+    <link rel="stylesheet" href="../css/allPages.css">
+
+    <!-- Icones do font Awesome --> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--  icones do boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body class="temaEscuro">
+    <div class="background ocultar"></div>
+
+    <nav>
+        <a href="../index.html"> 
+            <div class="iconsNav">                
+                <i class="fa-solid fa-house"></i>    
+                <span>Inicio</span> 
+            </div> 
+        </a>
+        
+        <a href="#">  
+            <div class="iconsNav">  
+                <i class="fa-solid fa-bullseye" style="color: #0ff77e;"></i>                            
+                <span style="color: #0ff77e;">Objetivos</span> 
+            </div> 
+        </a>
+        
+        <a href="relatorios.html">  
+            <div class="iconsNav"> 
+                <i class="fas fa-signal"></i>                                   
+                <span>Relatórios</span> 
+            </div> 
+        </a>
+        
+        <a href="perfil.html">  
+            <div class="iconsNav">     
+                <i class="fas fa-user-circle"></i>                              
+                <span>Perfil</span> 
+            </div> 
+        </a>
+    </nav>
+
+    <main>
+        <h1 class="titulo">Meus Objetivos</h1>
+        <div class="divObjetivos" id="divObjetivos">
+
+        </div>
+        <br>
+        <button id="adcObjetivos">Adicionar Objetivos</button>
+    </main>
+
+    <div class="divFlutuante ocultar" id="divCriarObj">
+        <div>
+            <i class='fa-solid fa-xmark' id="fecharCriarObj"></i>
+            <p>Digite o valor:</p>
+            <div class="divInputs"><input type="text" placeholder="R$ 0,00" required id="valorObj" autocomplete="off"></div>
+            <div class="divInputs"><input type="text" placeholder="Nome do objetivo" id="nomeDaMeta"></div>
+
+            <div class="divInputs"><button id="criarObjetivo">Criar</button></div>
+        </div>
+    </div>
+
+    <div class="divFlutuante ocultar" id="divEditar">
+        <div>
+            <i class='fa-solid fa-xmark' id="fecharEditarObj"></i>
+            <p id="tituloObj"></p>
+            <div class="divInputs"><input type="text" placeholder="R$ 0,00" id="novoValorObj" autocomplete="off"></div>
+            <div class="divInputs"><input type="text" placeholder="Novo nome" id="novoNomeObj"></div>
+            <div class="divInputs">
+                <button id="confirmarEdicao">Editar</button>
+                <button id="deletarObj">Deletar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/objetivos.js" type="module"></script>
+</body>
+</html>

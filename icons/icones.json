@@ -1,0 +1,106 @@
+[
+    {
+        "tags": "faculdade escola",
+        "icone": "<i class='fa-solid fa-graduation-cap'></i>"
+    },
+    {
+        "tags": "casa apartamento moradia aluguel imovel imóvel",
+        "icone": "<i class='fa-solid fa-house'></i>"
+    },
+    {
+        "tags": "carro veiculo veículo",
+        "icone": "<i class='fa-solid fa-car'></i>"
+    },
+    {
+        "tags": "roupas camisas blusas camisetas",
+        "icone": "<i class='fa-solid fa-shirt'></i>"
+    },
+    {
+        "tags": "cnh",
+        "icone": "<i class='fa-solid fa-address-card'></i>"
+    },
+    {
+        "tags": "transporte taxi",
+        "icone": "<i class='fa-solid fa-taxi'></i>"
+    },
+    {
+        "tags": "uber",
+        "icone": "<i class='fa-brands fa-uber'></i>"
+    },
+    {
+        "tags": "compras mercado feira",
+        "icone": "<i class='bx bx-cart'></i>"
+    },
+    {
+        "tags": "alimentação comidas alimentos alimentacao",
+        "icone": "<i class='fa-solid fa-pizza-slice'></i>"
+    },
+    {
+        "tags": "presentes surpresas",
+        "icone": "<i class='fa-solid fa-gift'></i>"
+    },
+    {
+        "tags": "cinema filmes",
+        "icone": "<i class='fa-solid fa-film'></i>"
+    },
+    {
+        "tags": "livros educação educacao",
+        "icone": "<i class='fa-solid fa-book'></i>"
+    },
+    {
+        "tags": "viajem aerea aérea",
+        "icone": "<i class='fa-solid fa-plane'></i>"
+    },
+    {
+        "tags": "reforma reformas",
+        "icone": "<i class='fa-solid fa-paint-roller'></i>"
+    },
+    {
+        "tags": "jogos games videogames nintendo",
+        "icone": "<i class='fa-solid fa-gamepad'></i>"
+    },
+    {
+        "tags": "cartãodecrédito ",
+        "icone": "<i class='fa-solid fa-credit-card'></i>"
+    },
+    {
+        "tags": "celular iphone tablets",
+        "icone": "<i class='fa-solid fa-mobile-screen'></i>"
+    },
+    {
+        "tags": "pc computador pcgamer desktop",
+        "icone": "<i class='fa-solid fa-computer'></i>"
+    },
+    {
+        "tags": "onibus sitpass busao busão",
+        "icone": "<i class='fa-solid fa-bus'></i>"
+    },
+    {
+        "tags": "saúde médico hospital saude medico",
+        "icone": "<i class='fa-solid fa-house-medical'></i>"
+    },
+    {
+        "tags": "energia luz contadeluz",
+        "icone": "<i class='fa-solid fa-bolt'></i>"
+    },
+    {
+        "tags": "ps4 ps5 playstation xbox",
+        "icone": "<i class='fa-solid fa-gamepad'></i>"
+    },
+    {
+        "tags": "wifi internet",
+        "icone": "<i class='fa-solid fa-wifi'></i>"
+    },
+    {
+        "tags": "spotify",
+        "icone": "<i class='fa-brands fa-spotify'></i>"
+    },
+    {
+        "tags": "pix",
+        "icone": "<i class='fa-brands fa-pix'></i>"
+    },
+    {
+        "tags": "outros",
+        "icone": "<i class='fa-solid fa-sack-dollar'></i>"
+    }
+]

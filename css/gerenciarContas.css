@@ -1,0 +1,137 @@
+main {
+    width: 100%;
+}
+
+
+main > a {
+    position: absolute;
+    top: 12px;
+    left: 35px;
+}
+.fa-arrow-left {
+    font-size: 25px !important;
+    color: var(--texto01) !important;
+    cursor: pointer;
+}
+
+.divMinhasContas {
+    width: 90%;
+    padding: 10px;
+    margin: 20px auto 5px auto;
+    border-radius: 7px;
+    background-color: var(--fundo02);
+    display: flex;
+    flex-direction: column;
+}
+
+.divConta {
+    display: flex;
+    width: 100%;
+    margin: 10px auto;
+    padding-bottom: 10px;
+    border-bottom: solid 1px var(--texto01);
+
+}
+
+.divConta img {
+    margin: auto 0px auto 20px;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+}
+
+.nomeConta {
+    margin: auto 0px auto 20px;
+}
+
+.valorConta {
+    margin: auto 20px auto auto;
+}
+
+.fa-pen-to-square {
+    font-size: 20px;
+    margin: auto 20px auto 0px;
+}
+
+.divCriarConta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 400px;
+    height: 250px;
+    background-color: var(--fundo02);
+    display: flex;
+    border-radius: 6px;
+    z-index: 999;
+}
+
+.divCriarConta div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#fecharCriarConta {
+    font-size: 27px;
+    position: fixed;
+    right: 0;
+    top: 10px;
+}
+
+#saldoConta {
+    background-color: #00000000;
+    color: var(--texto01);
+    border: none;
+    outline: none;
+    padding: 2px;
+    max-width: 150px;
+    margin: 5px auto 15px auto;
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+}
+#saldoConta::placeholder {
+    color: var(--texto01);
+}
+
+#nomeDaConta {
+    text-indent: 10px;
+    background-color: #00000000;
+    color: var(--texto01);
+    border: none;
+    outline: none;
+    margin: 5px auto;
+    height: 35px;
+    border-radius: 7px;
+    box-shadow: 0px 0px 7px rgba(255, 255, 255, 0.258);
+}
+#nomeDaConta:focus {
+    box-shadow: 0px 0px 7px rgba(255, 255, 255);
+}
+
+.fa-xmark { /* x */
+    margin: auto 20px auto 0px;
+    font-size: 25px;
+    color: var(--texto02);
+    cursor: pointer;
+}
+
+.fa-xmark:hover {
+    scale: 1.1;
+} 
+
+/* TELAS MAIORES */
+@media (min-width: 800px) {
+    main {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: calc(100% - 100px);
+        height: 100%;
+    }
+
+}

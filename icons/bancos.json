@@ -1,0 +1,55 @@
+[
+    {
+        "nome": "inter",
+        "src": "https://pbs.twimg.com/profile_images/1815382749705814016/h43kE1mB_400x400.jpg"
+    },
+    {
+        "nome": "nubank",
+        "src": "https://cdn.worldvectorlogo.com/logos/nubank-3.svg"
+    },
+    {
+        "nome": "caixa",
+        "src": "https://i.pinimg.com/236x/14/76/c0/1476c0485a016664e77954ca35bac477.jpg"
+    },
+    {
+        "nome": "brasil",
+        "src": "https://logopng.com.br/logos/banco-do-brasil-5.png"
+    },
+    {
+        "nome": "itaú",
+        "src": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/34/5b/77/345b7784-8378-9d32-9f34-7e1381af9900/Varejo-AppIcon-0-0-1x_U007emarketing-0-8-0-0-85-220.png/512x512bb.jpg"
+    },
+    {
+        "nome": "c6",
+        "src": "https://seeklogo.com/images/C/c6-bank-logo-67F1D0457B-seeklogo.com.png"
+    },
+    {
+        "nome": "pago",
+        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXA93--p5r_eFyEuPeVlMW0c4R2B09egd18QVhnDTKW1HqSOrxtQBVxfdJA6sb9sRFxnI&usqp=CAU"
+    },
+    {
+        "nome": "picpay",
+        "src": "https://yt3.googleusercontent.com/cUdSm0KI0fN0sgr5Jb_DvkaQRuR5G9rl1ijX7MoUueMq2AVzNKdBqS_WNALQl9OTRyCviKFJQOs=s900-c-k-c0x00ffffff-no-rj"
+    },
+    {
+        "nome": "santander",
+        "src": "https://assets.hgbrasil.com/finance/companies/big/banco-santander-sa.png"
+    },
+    {
+        "nome": "bradesco",
+        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDNVTc3mhbojIWSX9gonGIPaDetl3AhP66kA&s"
+    },
+    {
+        "nome": "next",
+        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7D2EigyCZUMYNHZ1hC0A3a0K7oQIbXrGYQJq-TP0dVFI3d3ydmL5bNmyC4SBdvFQhfqk&usqp=CAU"
+    },
+    {
+        "nome": "bmg",
+        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS97AcZMfvJCYV7XD9jPurcnuo_xYVK6IElXA&s"
+    },
+    {
+        "nome": "sicoob",
+        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZPDxXGGkG8KPvUcWJ8BYwKe3hPxzNlpSkAw&s"
+    }
+    
+]

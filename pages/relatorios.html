@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios</title>
+    <link rel="shortcut icon" href="../icons/fav-icon.png" type="image/x-icon">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../css/relatorios.css">
+    <link rel="stylesheet" href="../css/allPages.css">
+
+    <!-- Icones do font Awesome --> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--  icones do boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body class="temaEscuro">
+    <div class="background ocultar"></div>
+    <nav>
+        <a href="../index.html"> 
+            <div class="iconsNav">                
+                <i class="fa-solid fa-house"></i>    
+                <span>Inicio</span> 
+            </div> 
+        </a>
+        
+        <a href="objetivos.html">  
+            <div class="iconsNav">  
+                <i class="fa-solid fa-bullseye"></i>                            
+                <span>Objetivos</span> 
+            </div> 
+        </a>
+        
+        <a href="#">  
+            <div class="iconsNav"> 
+                <i class="fas fa-signal" style="color: #0ff77e;"></i>                                   
+                <span style="color: #0ff77e;">Relatórios</span> 
+            </div> 
+        </a>
+        
+        <a href="perfil.html">  
+            <div class="iconsNav">     
+                <i class="fas fa-user-circle"></i>                              
+                <span>Perfil</span> 
+            </div> 
+        </a>
+    </nav>
+
+<main>
+    <div class="divMes">
+        <i class="fa-solid fa-angle-left"></i>
+        <p id="nomeMes"></p>
+        <i class="fa-solid fa-angle-right"></i>
+    </div>
+
+    <div class="divRelat resultados">
+        <h1 style="color:var(--transf)">Resultados do mês</h1>
+        
+        <div> <p>Saldo inicial:</p> <p id="pSaldoInicial"></p> </div>
+
+        <div> <p>Receita total:</p> <p id="pReceitaTotal"></p> </div>
+
+        <div> <p>Despesa total:</p> <p id="pDespesaTotal"></p> </div>
+
+        <div> <p>Saldo final:</p>   <p id="pSaldoFinal"></p> </div>
+        
+    </div>
+
+    <div class="divRelat receitas">
+   
+    </div>
+
+    <div class="divRelat despesas">
+
+    </div>
+
+    <div class="divRelat despXrec">
+        <h3>Despesa x Receita</h3>
+        <div class="dr">    </div>
+        <div class="porcetagens"></div>
+
+    </div>
+
+</main>
+
+    <script src="../js/relatorios.js" type="module"></script>
+
+</body>
+</html>
